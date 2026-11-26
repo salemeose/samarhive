@@ -456,6 +456,7 @@ function vHome() {
   return hdr(greet, date, `<button class="ib me" data-settings aria-label="${t('settings')}">${initial(S.user.name)}</button>`) +
   `<main class="main">
   ${window.prepHome ? `<div id="x-home" class="stack">${window.prepHome()}</div>` : ''}
+  ${isMgr() && window.acctHome ? `<div id="x-acct" class="stack">${window.acctHome()}</div>` : ''}
   <div class="h2 row between"><span>${t('my_today')} <span class="d" style="color:var(--gold)">${mDone}/${mine.length}</span></span><a href="#tasks" class="xhl">${t('f_all')} ${ic('chev', 16, 'currentColor', 2, 'go')}</a></div>
   <div class="card list">${shownT.length ? shownT.map(taskRow).join('') : `<div class="empty">${t('all_done')}</div>`}</div>
   ${teamHtml}

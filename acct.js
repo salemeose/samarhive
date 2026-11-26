@@ -13,7 +13,7 @@ ar: { acct: 'المحاسبة', mgr_only: 'للمديرين فقط', sum: 'ال�
   from: 'من', to: 'إلى', date: 'التاريخ', note: 'ملاحظة', note_ph: 'مثال: إعلان فيسبوك · حملة الشتاء', photo: 'صورة الإيصال', photo_view: 'عرض الصورة', photo_change: 'تغيير الصورة',
   save: 'حفظ', del: 'حذف', del_q: 'حذف هذه الحركة؟', saved: 'تم الحفظ', deleted: 'حُذفت', need_amount: 'أدخل المبلغ', same_acc: 'اختر حسابين مختلفين',
   open_t: 'رصيد البداية', open_s: 'كم كان في كل حساب يوم بدء استعمال التطبيق؟ المبيعات والمصاريف بعد هذا التاريخ تُحسب تلقائيًا.', open_date: 'تاريخ البداية',
-  excel: 'Excel الشهر', no_rows: 'لا شيء لتنزيله', loading: 'جارٍ التحميل…', not_counted: 'لا يدخل في الربح', tr_word: 'تحويل',
+  excel: 'Excel الشهر', h_out: 'المصاريف', h_bal: 'في الحسابات', no_rows: 'لا شيء لتنزيله', loading: 'جارٍ التحميل…', not_counted: 'لا يدخل في الربح', tr_word: 'تحويل',
   c_stock: 'مشتريات البضاعة', c_ads: 'الإعلانات', c_delivery: 'التوصيل', c_salary: 'الرواتب', c_pack: 'التغليف', c_rent: 'الإيجار', c_fees: 'رسوم بنكية', c_owner: 'سحب المالك', c_other: 'أخرى',
   c_refund: 'استرجاع', c_capital: 'إيداع رأس مال', c_misc: 'دخل آخر' },
 fr: { acct: 'Compta', mgr_only: 'Gérants uniquement', sum: 'Résumé', log: 'Journal', net: 'Résultat net', vs_prev: 'vs mois dernier', sales: 'Ventes', stock: 'Achats marchandise',
@@ -24,7 +24,7 @@ fr: { acct: 'Compta', mgr_only: 'Gérants uniquement', sum: 'Résumé', log: 'Jo
   from: 'De', to: 'Vers', date: 'Date', note: 'Note', note_ph: 'Ex. : pub Facebook · campagne hiver', photo: 'Photo du reçu', photo_view: 'Voir la photo', photo_change: 'Changer la photo',
   save: 'Enregistrer', del: 'Supprimer', del_q: 'Supprimer ce mouvement ?', saved: 'Enregistré', deleted: 'Supprimé', need_amount: 'Saisissez le montant', same_acc: 'Choisissez deux comptes différents',
   open_t: 'Solde initial', open_s: 'Combien y avait-il sur chaque compte le jour du démarrage ? Ventes et dépenses après cette date sont comptées automatiquement.', open_date: 'Date de départ',
-  excel: 'Excel du mois', no_rows: 'Rien à télécharger', loading: 'Chargement…', not_counted: 'hors résultat', tr_word: 'Virement',
+  excel: 'Excel du mois', h_out: 'Dépenses', h_bal: 'Sur les comptes', no_rows: 'Rien à télécharger', loading: 'Chargement…', not_counted: 'hors résultat', tr_word: 'Virement',
   c_stock: 'Achats marchandise', c_ads: 'Publicité', c_delivery: 'Livraison', c_salary: 'Salaires', c_pack: 'Emballage', c_rent: 'Loyer', c_fees: 'Frais bancaires', c_owner: 'Retrait gérant', c_other: 'Autre',
   c_refund: 'Remboursement', c_capital: 'Apport en capital', c_misc: 'Autre entrée' }
 };
@@ -54,6 +54,7 @@ async function load() {
     const [m, s] = await Promise.all([api('money.list'), api('sales.list', {})]);
     AC.money = m; AC.sales = s; store.set('money', m); store.set('acct_sales', s);
     if (/^#(acct|money)/.test(location.hash)) { const y = window.scrollY; render(); window.scrollTo(0, y); }
+    drawHomeAcct();
   } catch (e) { if (!AC.money) fail(e); }
 }
 
@@ -261,13 +262,25 @@ document.addEventListener('input', e => {
   const n = readNum(e.target.value); e.target.value = n ? n.toLocaleString('en-US').replace(/,/g, ' ') : '';
 });
 
+/* ---------- summary on the Home page (managers) ---------- */
+function homeAcct() {
+  if (!isMgr() || AC.money == null) return '';
+  const s = monthStats(ym0()), { b } = balances(), tot = ACC.reduce((x, k) => x + b[k], 0);
+  const cell = (v, l, c, neg) => `<a href="#acct"><b dir="ltr" class="${neg ? 'neg' : ''}">${neg ? '−' : ''}${num(Math.abs(v))}</b><span><i style="background:${c}"></i>${l}</span></a>`;
+  return `<div class="h2 row between"><span>${ta('acct')} · ${t('months')[+ym0().slice(5) - 1]}</span><a href="#acct" class="xhl">${ta('sum')} ${ic('chev', 16, 'currentColor', 2, 'go')}</a></div>
+  <div class="card list"><div class="tri">${cell(s.net, ta('net'), s.net < 0 ? '#B42318' : '#22C55E', s.net < 0)}${cell(s.stock + s.exp, ta('h_out'), '#F59E0B')}${cell(tot, ta('h_bal'), '#2563EB', tot < 0)}</div>
+  <div class="acmini">${ACC.filter(k => b[k]).map(k => `<span><i style="background:${ACC_C[k]}"></i><bdi>${accName(k)}</bdi> <b dir="ltr" class="${b[k] < 0 ? 'neg' : ''}">${b[k] < 0 ? '−' : ''}${num(Math.abs(b[k]))}</b></span>`).join('')}</div></div>`;
+}
+window.acctHome = () => { try { return homeAcct(); } catch (e) { return ''; } };
+const drawHomeAcct = () => { const el = document.getElementById('x-acct'); if (el) el.innerHTML = window.acctHome(); };
+
 /* ---------- route ---------- */
 routes.acct = vAcct; routes.money = vMoney;
 window.acctNew = () => { AC.draft = null; go('money/new'); };
 const prevHook = window.onRoute;
 window.onRoute = (name, arg) => {
   if (prevHook) prevHook(name, arg);
-  if (name === 'acct') load();
+  if (name === 'acct' || name === 'home' || name === '') load();
   if (name === 'money' && AC.money == null) load();
   if (name === 'money' && arg === 'new') setTimeout(() => { const a = document.getElementById('ac-amt'); if (a && !a.value) a.focus(); }, 80);
 };
@@ -275,6 +288,8 @@ window.onRoute = (name, arg) => {
 /* ---------- styles ---------- */
 const css = document.createElement('style');
 css.textContent = `
+.acmini{display:flex;flex-wrap:wrap;gap:6px 14px;padding:10px 16px 12px;border-top:1px solid var(--hair);font-size:12px;color:var(--grey)}.acmini span{display:inline-flex;align-items:center;gap:5px}.acmini i{width:7px;height:7px;border-radius:50%}.acmini b{font:600 12.5px var(--d);color:var(--navy)}.acmini:empty{display:none}
+.tri a b.neg{color:#B42318}
 .fl{transform:rotate(90deg)}[dir=rtl] .fl{transform:rotate(-90deg)}
 .top .ib:disabled{opacity:.35}
 .acico{flex:none;width:48px;height:48px;border-radius:16px;background:#FFF4CC;color:#8A6400;display:flex;align-items:center;justify-content:center;align-self:flex-start}
