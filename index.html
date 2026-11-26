@@ -6,8 +6,8 @@
 <meta name="theme-color" content="#1F2937">
 <title>samarHive</title>
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="favicon-32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="apple-touch-icon-180.png">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;600&family=Readex+Pro:wght@400;500;600&display=swap">
@@ -16,7 +16,7 @@
 :root{--sh:0 1px 2px rgba(31,41,55,.05),0 8px 24px rgba(31,41,55,.08);--sh2:0 14px 34px rgba(17,24,39,.22);--blue:#2563EB;--bluebg:#EFF6FF;--vio:#7C3AED;--viobg:#F5F3FF;--navy:#1F2937;--yel:#FFC800;--gold:#B98500;--goldt:#8A6400;--bg:#F6F3ED;--line:#ECE5D8;--grey:#4B5563;--red:#B42318;--redbg:#FEF3F2;--green:#166534;--greenbg:#ECFDF3;--amberbg:#FFF4CC;--d:'Alexandria','Readex Pro',system-ui,sans-serif}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;background:var(--bg);color:var(--navy);font-family:'Readex Pro',system-ui,sans-serif;line-height:1.5}
-button,input,select{font:inherit;color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
 button{cursor:pointer}
 a{color:inherit}
 #app{max-width:560px;margin:0 auto;min-height:100dvh;display:flex;flex-direction:column}
@@ -91,8 +91,74 @@ label.f{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:60
 .sheet-bg{position:fixed;inset:0;background:rgba(17,24,39,.45);z-index:20;display:flex;align-items:flex-end;justify-content:center}
 .sheet{background:var(--bg);width:100%;max-width:520px;border-radius:26px 26px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:12px}
 .login-top{background:var(--navy);border-radius:0 0 40px 40px;padding:calc(40px + env(safe-area-inset-top)) 20px 36px;display:flex;flex-direction:column;align-items:center;gap:12px;color:#fff;position:relative;overflow:hidden}
+button,a,label,input{touch-action:manipulation}
+button,a.btn,a.tile,a.ib,.pill,.xa,.xh,.xra,.xphb{transition:transform .12s ease,filter .12s ease,box-shadow .12s ease,background .15s}
+button:active,a.btn:active,a.tile:active,a.ib:active,nav.bar a:active,.xh:active{transform:scale(.95);filter:brightness(.93)}
+.xh:active{transform:scale(.99)}
+nav.bar a{transition:transform .12s ease}
+.busy{pointer-events:none;opacity:.75;position:relative}
+.busy>svg,.busy .xai svg{animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){button,a{transition:none!important}.busy>svg{animation:none}}
 .flip{transform:scaleX(1)}[dir=rtl] .flip{transform:scaleX(-1)}
 .demo{background:var(--amberbg);color:var(--goldt);font-size:12px;text-align:center;padding:6px;font-weight:600}
+
+/* ===== design A · calm premium ===== */
+:root{--bg:#FAF8F5;--line:#EFE9DF;--hair:#F3EEE5;--grey:#8C8577;--sh:0 1px 2px rgba(31,41,55,.04);--d:'Alexandria','Readex Pro',sans-serif}
+html,body{background:var(--bg)}
+.top{background:rgba(250,248,245,.88);padding:calc(16px + env(safe-area-inset-top)) 20px 12px;align-items:flex-end}
+.top h1{font:600 26px/1.25 var(--d);letter-spacing:-.2px}
+.top .sub{font-size:13px;color:var(--grey);margin-bottom:1px}
+.top .ib{width:44px;height:44px;border-radius:15px;border:1px solid var(--line);box-shadow:none}
+.top .ib.me{border-radius:50%;background:var(--navy);border-color:var(--navy);color:var(--yel);font:600 16px var(--d)}
+.main{padding:6px 16px 130px;gap:10px}
+.stack{display:flex;flex-direction:column;gap:10px}
+.card{border:1px solid var(--line);border-radius:22px;box-shadow:none}
+.card.list{padding:0;overflow:hidden}
+.h2{font:600 15.5px/1.4 var(--d);margin:12px 6px 0}
+.xhl{display:inline-flex;align-items:center;gap:2px;font:500 13px 'Readex Pro',sans-serif;color:var(--gold);text-decoration:none;min-height:32px}
+.go{transform:rotate(-90deg)}[dir=rtl] .go{transform:rotate(90deg)}
+.lrow{display:flex;align-items:center;gap:12px;padding:12px 16px;min-height:60px;color:inherit}
+.lrow+.lrow{border-top:1px solid var(--hair)}
+.lr-t{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;border:0;background:none;padding:0;text-align:start;color:inherit}
+.lr-t b{font-weight:500;font-size:14.5px;line-height:1.45}
+.lr-t small{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--grey)}
+.lr-n{font-size:14px;color:var(--grey)}
+.lrow.done .lr-t b{color:#A8A196;text-decoration:line-through}
+.ck{flex:none;width:28px;height:28px;border-radius:9px;border:1.7px solid #D6CFC2;background:#fff;display:flex;align-items:center;justify-content:center;padding:0;position:relative}
+.ck::before{content:"";position:absolute;inset:-9px}
+.ck.on{background:var(--navy);border-color:var(--navy)}
+.lrow .av{width:36px;height:36px;border-radius:12px}
+.bar8{display:block;height:6px;border-radius:99px;background:#F1ECE3}.bar8 i{background:var(--navy);border-radius:99px}
+/* buttons: softer corners, one strong action */
+.btn{border-radius:15px;box-shadow:none}
+.btn.o,.btn.c{background:#fff;border:1.5px solid #E5DED2;color:var(--navy)}
+.btn.y{box-shadow:0 8px 18px -8px rgba(185,133,0,.6)}
+/* tabs as a segmented control */
+.pills{background:#F1ECE3;border-radius:14px;padding:4px;gap:4px}
+.pill{background:transparent;border:0;height:38px;border-radius:11px;color:#6B6458;font-size:13.5px;box-shadow:none}
+.pill.on{background:#fff;color:var(--navy);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.pill .n{font-family:var(--d);opacity:.55}
+.seg{background:#F1ECE3;border-radius:14px}
+/* task cards */
+.task{border-inline-start:0}
+.task .t{font-weight:500;font-size:15.5px}
+.check{width:32px;height:32px;border-radius:10px;border:1.7px solid #D6CFC2;margin:6px}
+.check svg{width:18px;height:18px}
+.check.on{background:var(--navy);border-color:var(--navy);box-shadow:none}
+.check.on svg{stroke:var(--yel)}
+.chip{font-weight:500;font-size:11px;padding:2px 9px}
+.st-prog{background:#FFF4CC}.st-new{background:#F1ECE3;color:#6B6458}
+/* bottom bar: light, floating, centre + */
+nav.bar{background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:24px;height:66px;box-shadow:0 14px 34px -14px rgba(31,41,55,.3);align-items:center;padding:0 6px}
+nav.bar a{color:#9A9384;font-size:11px;gap:3px}
+nav.bar a.on{color:var(--navy)}nav.bar a.on svg{filter:none;stroke-width:2.3}
+nav.bar a.on::after{display:none}
+.nfab{flex:none;width:54px;height:54px;border-radius:18px;border:0;background:var(--yel);color:var(--navy);display:flex;align-items:center;justify-content:center;margin:-30px 4px 0;box-shadow:0 10px 20px -6px rgba(185,133,0,.65),0 0 0 5px var(--bg)}
+.toast{bottom:calc(100px + env(safe-area-inset-bottom));border-radius:14px}
+.sheet{border-radius:28px 28px 0 0}
+.inp,.code6 input{border:1.5px solid var(--line);border-radius:14px}
+.demo{font-weight:500}
 </style>
 </head>
 <body>
@@ -292,14 +358,16 @@ function render() {
   if (window.onRoute) window.onRoute(name || 'home', arg);
 }
 function navBar(cur) {
-  const items = [['home', 'home', t('home')], ['tasks', 'tasks', t('tasks')]];
-  if (routes.prep) items.push(['prep', 'box', t('prep')]);
-  if (isMgr()) items.push(['team', 'users', t('team')]);
+  const a = [['home', 'home', t('home')]], b = [['tasks', 'tasks', t('tasks')]];
+  if (routes.prep) a.push(['prep', 'box', t('prep')]);
+  if (isMgr()) b.push(['team', 'users', t('team')]);
   if (cur === 'task' || cur === 'person') cur = cur === 'task' ? 'tasks' : 'team';
-  return `<nav class="bar" aria-label="nav">${items.map(([r, i, l]) => `<a href="#${r}" class="${cur === r ? 'on' : ''}" ${cur === r ? 'aria-current="page"' : ''}>${ic(i, 22)}${l}</a>`).join('')}</nav>`;
+  const lk = ([r, i, l]) => `<a href="#${r}" class="${cur === r ? 'on' : ''}" ${cur === r ? 'aria-current="page"' : ''}>${ic(i, 22)}<span>${l}</span></a>`;
+  const plus = cur === 'tasks' || !routes.prep ? `data-new aria-label="${t('new_task')}"` : `data-nfab aria-label="${t('prep')} +"`;
+  return `<nav class="bar" aria-label="nav">${a.map(lk).join('')}<button class="nfab" ${plus}>${ic('plus', 26, 'currentColor', 2.4)}</button>${b.map(lk).join('')}</nav>`;
 }
 function hdr(title, sub, right = '', back = '') {
-  return `<header class="top">${back ? `<a class="ib" href="#${back}" aria-label="back">${ic('back', 22, 'currentColor', 1.8, 'flip')}</a>` : ''}<div class="grow"><h1>${title}</h1>${sub ? `<div class="sub">${sub}</div>` : ''}</div>${right}</header>`;
+  return `<header class="top">${back ? `<a class="ib" href="#${back}" aria-label="back">${ic('back', 22, 'currentColor', 1.8, 'flip')}</a>` : ''}<div class="grow">${sub ? `<div class="sub">${sub}</div>` : ''}<h1>${title}</h1></div>${right}</header>`;
 }
 
 /* ---------- login ---------- */
@@ -363,37 +431,33 @@ function filtered(f, scope) {
 }
 
 /* ---------- home ---------- */
+function taskRow(x) {
+  const st = status(x), canEdit = isMgr() || x.createdBy === S.user.id;
+  return `<div class="lrow${st === 'done' ? ' done' : ''}"><button class="ck${st === 'done' ? ' on' : ''}" data-done="${x.id}" aria-label="${t('done')}">${st === 'done' ? ic('check', 16, '#FFC800', 2.8) : ''}</button>
+  <${canEdit ? `button data-edit="${x.id}"` : 'div'} class="lr-t"><b>${esc(x.title)}</b><small>${ic('clock', 13)}<span>${fmtDue(x.due)}</span>${st === 'late' ? `<span class="chip st-late">${t('st_late')}</span>` : ''}</small></${canEdit ? 'button' : 'div'}></div>`;
+}
 function vHome() {
   const now = new Date(), h = now.getHours();
   const greet = `${h < 12 ? t('morning') : h < 18 ? t('hello') : t('evening')}، ${esc(S.user.name)}`.replace('،', S.lang === 'ar' ? '،' : ',');
   const date = `${t('days')[now.getDay()]} ${now.getDate()} ${t('months')[now.getMonth()]}`;
   const scope = isMgr() ? S.tasks : S.tasks.filter(x => x.assigneeId === S.user.id);
   const today = scope.filter(x => (x.due || '').slice(0, 10) <= dayKey(now) && (status(x) !== 'done' || (x.doneAt || '').slice(0, 10) === dayKey(now)));
-  const done = today.filter(x => status(x) === 'done').length, late = today.filter(x => status(x) === 'late').length;
-  const mine = filtered('today', 'mine').filter(x => status(x) !== 'done');
+  const mine = filtered('today', 'mine'), mDone = mine.filter(x => status(x) === 'done').length;
+  const shownT = mine.filter(x => status(x) !== 'done').concat(mine.filter(x => status(x) === 'done')).slice(0, 6);
   let teamHtml = '';
   if (isMgr()) {
     const people = S.team.filter(u => u.active).map(u => {
       const ts = today.filter(x => x.assigneeId === u.id), d = ts.filter(x => status(x) === 'done').length, l = ts.filter(x => status(x) === 'late').length;
-      return ts.length ? `<div class="row"><span class="av">${initial(u.name)}</span><div class="grow"><div class="row between" style="font-size:14px"><span>${esc(u.name)}${l ? ` <span class="chip st-late">${l} ${t('late')}</span>` : ''}</span><span class="d">${d}/${ts.length}</span></div><div class="bar8" style="margin-top:6px"><i style="width:${Math.round(d / ts.length * 100)}%"></i></div></div></div>` : '';
+      return ts.length ? `<a class="lrow" href="#person/${u.id}" style="text-decoration:none"><span class="av">${initial(u.name)}</span><div class="lr-t"><b>${esc(u.name)}${l ? ` <span class="chip st-late">${l} ${t('late')}</span>` : ''}</b><span class="bar8" style="margin-top:6px"><i style="width:${Math.round(d / ts.length * 100)}%"></i></span></div><span class="d lr-n">${d}/${ts.length}</span></a>` : '';
     }).join('');
-    teamHtml = people ? `<div class="h2">${t('team_today')}</div><div class="card" style="display:flex;flex-direction:column;gap:14px">${people}</div>` : '';
+    teamHtml = people ? `<div class="h2 row between"><span>${t('team_today')}</span><a href="#team" class="xhl">${t('f_all')} ${ic('chev', 16, 'currentColor', 2, 'go')}</a></div><div class="card list">${people}</div>` : '';
   }
-  return hdr(greet, date, `<button class="ib" data-settings aria-label="${t('settings')}"><span class="d" style="font-size:15px">${initial(S.user.name)}</span></button>`) +
+  return hdr(greet, date, `<button class="ib me" data-settings aria-label="${t('settings')}">${initial(S.user.name)}</button>`) +
   `<main class="main">
-  <a class="hero" href="#tasks" style="text-decoration:none;display:flex;flex-direction:column;gap:12px">${DECO}
-   <div class="row between"><span class="lbl">${t('today_tasks')}</span>${late ? `<span class="chip" style="background:#FFC800;color:#1F2937">${late} ${t('late')}</span>` : ''}</div>
-   <div class="big"><bdi>${done}/${today.length}</bdi> <span style="font-size:16px;color:#FFC800">${t('done_of').split(' ')[0]}</span></div>
-   <div class="bar8" style="background:rgba(255,255,255,.14)"><i style="width:${today.length ? Math.round(done / today.length * 100) : 0}%;background:#FFC800"></i></div></a>
-  <div class="tiles">
-   <a class="tile" href="#tasks" style="--c:#2563EB;--cb:#EFF6FF"><span class="ti">${ic('tasks', 22)}</span><b>${today.filter(x => status(x) !== 'done').length}</b><span>${t('tasks')}</span></a>
-   ${routes.prep ? `<a class="tile" href="#prep" style="--c:#8A6400;--cb:#FFF4CC"><span class="ti">${ic('box', 22)}</span><b>${(store.get('orders', []) || []).filter(o => o.status === 'open').length}</b><span>${t('prep')}</span></a>` : ''}
-   ${isMgr() ? `<a class="tile" href="#team" style="--c:#7C3AED;--cb:#F5F3FF"><span class="ti">${ic('users', 22)}</span><b>${S.team.filter(u => u.active).length}</b><span>${t('team')}</span></a>` : `<a class="tile" href="#tasks" style="--c:#16A34A;--cb:#ECFDF3"><span class="ti">${ic('check', 22)}</span><b>${done}</b><span>${t('f_done')}</span></a>`}
-  </div>
-  <div class="h2">${t('my_today')}</div>
-  ${mine.length ? mine.map(taskCard).join('') : `<div class="card empty">${t('all_done')}</div>`}
+  ${window.prepHome ? `<div id="x-home" class="stack">${window.prepHome()}</div>` : ''}
+  <div class="h2 row between"><span>${t('my_today')} <span class="d" style="color:var(--gold)">${mDone}/${mine.length}</span></span><a href="#tasks" class="xhl">${t('f_all')} ${ic('chev', 16, 'currentColor', 2, 'go')}</a></div>
+  <div class="card list">${shownT.length ? shownT.map(taskRow).join('') : `<div class="empty">${t('all_done')}</div>`}</div>
   ${teamHtml}
-  <div class="card row" style="background:transparent;box-shadow:none;border-style:dashed">${LOGO(36)}<div class="grow"><div style="font-weight:600;font-size:14px">${t('soon')}</div><div class="muted">${t('soon_t')}</div></div></div>
   </main>`;
 }
 
@@ -418,7 +482,7 @@ function vTasks() {
   <div class="pills" role="tablist">${fs.map(f => `<button class="pill ${S.f === f ? 'on' : ''}" data-f="${f}" role="tab" aria-selected="${S.f === f}">${t('f_' + f)}<span class="n">${count(f)}</span></button>`).join('')}</div>
   ${isMgr() ? `<div class="seg">${['all', 'mine'].map(s => `<button class="${S.scope === s ? 'on' : ''}" data-scope="${s}">${t('f_' + s)}</button>`).join('')}</div>` : ''}
   ${list.length ? list.map(taskCard).join('') : `<div class="empty">${t('none')}</div>`}
-  </main><button class="fab" data-new>${ic('plus', 22)}${t('new_task')}</button>`;
+  </main>`;
 }
 function vTaskForm(id) {
   const x = id ? S.tasks.find(y => y.id === id) : null;
@@ -490,14 +554,17 @@ function logout(silent) {
 }
 
 /* ---------- actions (event delegation) ---------- */
+document.addEventListener('touchstart', () => {}, { passive: true });
 document.addEventListener('click', async e => {
   const el = e.target.closest('button,a,input'); if (!el) return;
+  if (navigator.vibrate && el.matches('.btn,.check,.fab,[data-done]')) navigator.vibrate(8);
   const ds = el.dataset;
   if ('lang' in ds) return setLang(S.lang === 'ar' ? 'fr' : 'ar');
   if ('settings' in ds) return settingsSheet();
   if (ds.f) { S.f = ds.f; return render(); }
   if (ds.scope) { S.scope = ds.scope; return render(); }
   if ('new' in ds) { S.draft = null; return go('task'); }
+  if ('nfab' in ds) { if (location.hash !== '#prep') go('prep'); setTimeout(() => { const x = document.getElementById('x-in'); if (x) { window.scrollTo({ top: 0, behavior: 'smooth' }); x.focus(); } }, 120); return; }
   if (ds.edit) { S.draft = null; return go('task/' + ds.edit); }
   if (ds.done) return toggleDone(ds.done);
   if (ds.remind) {

@@ -16,7 +16,7 @@ ar: { prep: 'التجهيز', sub_n: 'طلبات مفتوحة', paste_ph: 'ال�
   remove: 'إزالة هذا الطلب', remove_q: 'إزالة هذا الطلب من القائمة؟', removed: 'تمت إزالة الطلب', copied: 'نُسخ الرقم', copy: 'نسخ', saved_img: 'حُفظ الإيصال كصورة', img_fail: 'تعذّر إنشاء الصورة',
   sold_ok: 'سُجّل البيع', sold_upd: 'تم تحديث البيع', archived: 'وحُفظ الإيصال في Drive', conf_on: '✓ الطلب مؤكد', conf_off: 'أُلغي التأكيد', gift_on: '🎁 أُضيفت هدية مجانية', gift_off: 'أُزيلت الهدية', gift_added: '🎁 أُضيفت الهدية', gift_del: 'حُذفت الهدية', prod_added: '✓ أُضيف',
   sales: 'سجل المبيعات', this_month: 'هذا الشهر', all: 'الكل', sales_n: 'بيع', xls_month: 'Excel هذا الشهر', xls_all: 'Excel الكل', no_sales: 'لا توجد مبيعات في هذه الفترة', sdel_q: 'حذف هذا البيع من السجل؟ يرجع الطلب غير مباع.', sdel_ok: 'حُذف البيع من السجل', sales_note: 'المبيعات محفوظة في Google Sheets، والإيصالات في Drive › samarHive › Receipts.',
-  imp: 'استيراد من صفحة التجهيز القديمة', imp_s: 'في الصفحة القديمة اضغط «Excel الكل» ثم اختر الملف هنا', imp_ok: 'تم استيراد', imp_skip: 'موجودة مسبقاً', imp_bad: 'هذا ليس ملف المبيعات من صفحة التجهيز', cat_loading: 'تحميل المنتجات…', cat_fail: 'تعذّر تحميل المنتجات من samar.mr — يظهر الرمز فقط', cat_upd: 'تحديث المنتجات', cat_ok: 'تم تحديث المنتجات', sync: 'يتم الحفظ…', packed: 'تم', empty: 'لا توجد طلبات. الصق رسالة طلب من واتساب للبدء.', bc_saved: 'حُفظ طلب المورد في Drive' },
+  h_t: 'طلبات قيد التجهيز', h_vs: 'عن أمس', h_f_all: 'الكل', h_f_wait: 'للتأكيد', h_f_conf: 'مؤكدة', h_packed: 'جُهّز', h_of: 'من', h_wait: 'للتأكيد', h_conf: 'مؤكدة', h_sold: 'بيعت اليوم', h_day: 'مبيعات اليوم', h_month: 'مبيعات الشهر', h_open: 'افتح التجهيز', h_none: 'لا طلبات مفتوحة الآن', h_more: 'طلبات أخرى', imp: 'استيراد من صفحة التجهيز القديمة', imp_s: 'في الصفحة القديمة اضغط «Excel الكل» ثم اختر الملف هنا', imp_ok: 'تم استيراد', imp_skip: 'موجودة مسبقاً', imp_bad: 'هذا ليس ملف المبيعات من صفحة التجهيز', cat_loading: 'تحميل المنتجات…', cat_fail: 'تعذّر تحميل المنتجات من samar.mr — يظهر الرمز فقط', cat_upd: 'تحديث المنتجات', cat_ok: 'تم تحديث المنتجات', sync: 'يتم الحفظ…', packed: 'تم', empty: 'لا توجد طلبات. الصق رسالة طلب من واتساب للبدء.', bc_saved: 'حُفظ طلب المورد في Drive' },
 fr: { prep: 'Préparation', sub_n: 'commandes ouvertes', paste_ph: 'Collez ici le message WhatsApp de la commande… il est ajouté et la case se vide', paste: 'Coller', add_order: 'Ajouter la commande',
   no_code: 'Aucun code produit (ex. SM261002) dans le message.', added: 'Ajouté', orders_w: 'commandes', order_w: 'la commande', ready_next: 'prêt pour la suivante', dup_one: 'Cette commande est déjà enregistrée', dup_many: 'déjà enregistrées',
   all_orders: 'Toutes', confirmed: 'Confirmées', pct_note: 'de la valeur confirmée · sans livraison', sup_all: 'Bon de commande pour tout', sup_one: 'Bon de cde', clear_all: 'Vider la liste', clear_q: 'Retirer toutes les commandes de la liste ? Les ventes restent.',
@@ -28,7 +28,7 @@ fr: { prep: 'Préparation', sub_n: 'commandes ouvertes', paste_ph: 'Collez ici l
   remove: 'Retirer cette commande', remove_q: 'Retirer cette commande de la liste ?', removed: 'Commande retirée', copied: 'Numéro copié', copy: 'Copier', saved_img: 'Reçu enregistré en image', img_fail: 'Image impossible',
   sold_ok: 'Vente enregistrée', sold_upd: 'Vente mise à jour', archived: 'et reçu gardé dans Drive', conf_on: '✓ Commande confirmée', conf_off: 'Confirmation annulée', gift_on: '🎁 Cadeau ajouté', gift_off: 'Cadeau retiré', gift_added: '🎁 Cadeau ajouté', gift_del: 'Cadeau supprimé', prod_added: '✓ Ajouté',
   sales: 'Ventes', this_month: 'Ce mois', all: 'Tout', sales_n: 'ventes', xls_month: 'Excel du mois', xls_all: 'Excel tout', no_sales: 'Aucune vente sur cette période', sdel_q: 'Supprimer cette vente ? La commande redevient non vendue.', sdel_ok: 'Vente supprimée', sales_note: 'Les ventes sont dans Google Sheets, les reçus dans Drive › samarHive › Receipts.',
-  imp: 'Importer depuis l’ancienne page tajhiz', imp_s: 'Sur l’ancienne page touchez « Excel الكل » puis choisissez le fichier ici', imp_ok: 'Importées', imp_skip: 'déjà présentes', imp_bad: 'Ce n’est pas le fichier des ventes de la page tajhiz', cat_loading: 'Chargement des produits…', cat_fail: 'Produits de samar.mr indisponibles — seul le code s’affiche', cat_upd: 'Mettre à jour les produits', cat_ok: 'Produits mis à jour', sync: 'Enregistrement…', packed: 'Fait', empty: 'Aucune commande. Collez un message WhatsApp pour commencer.', bc_saved: 'Bon de commande gardé dans Drive' }
+  h_t: 'Commandes en préparation', h_vs: 'vs hier', h_f_all: 'Toutes', h_f_wait: 'À confirmer', h_f_conf: 'Confirmées', h_packed: 'Préparé', h_of: 'sur', h_wait: 'À confirmer', h_conf: 'Confirmées', h_sold: 'Vendues auj.', h_day: 'Ventes du jour', h_month: 'Ventes du mois', h_open: 'Ouvrir la préparation', h_none: 'Aucune commande en cours', h_more: 'autres commandes', imp: 'Importer depuis l’ancienne page tajhiz', imp_s: 'Sur l’ancienne page touchez « Excel الكل » puis choisissez le fichier ici', imp_ok: 'Importées', imp_skip: 'déjà présentes', imp_bad: 'Ce n’est pas le fichier des ventes de la page tajhiz', cat_loading: 'Chargement des produits…', cat_fail: 'Produits de samar.mr indisponibles — seul le code s’affiche', cat_upd: 'Mettre à jour les produits', cat_ok: 'Produits mis à jour', sync: 'Enregistrement…', packed: 'Fait', empty: 'Aucune commande. Collez un message WhatsApp pour commencer.', bc_saved: 'Bon de commande gardé dans Drive' }
 };
 const tp = k => (PL[S.lang] && PL[S.lang][k]) || PL.ar[k] || k;
 L.ar.prep = 'التجهيز'; L.fr.prep = 'Préparation';
@@ -39,6 +39,7 @@ Object.assign(P, {
   image: 'M4 5h16v14H4z M4 16l5-5 4 4 3-3 4 4 M15 9h.01',
   gift: 'M20 12v9H4v-9 M2 7h20v5H2z M12 21V7 M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z',
   truck: 'M3 6h11v10H3z M14 10h4l3 3v3h-7z M7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z',
+  pin: 'M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z M12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5', user: 'M20 21a8 8 0 0 0-16 0 M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10', note: 'M4 4h16v12l-4 4H4z M16 20v-4h4 M8 9h8 M8 13h5', up: 'M7 17L17 7 M8 7h9v9', down: 'M7 7l10 10 M17 8v9H8',
   x: 'M6 6l12 12 M18 6L6 18', undo: 'M9 14L4 9l5-5 M4 9h11a5 5 0 0 1 0 10h-3', chev: 'M6 9l6 6 6-6',
   search: 'M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14z M21 21l-4.3-4.3', phone: 'M5 4h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2',
   coins: 'M12 8c4.4 0 8-1.3 8-3s-3.6-3-8-3-8 1.3-8 3 3.6 3 8 3z M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5 M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6',
@@ -46,7 +47,7 @@ Object.assign(P, {
 });
 const PAYS = [['cash', () => tp('cash')], ['bankily', () => 'Bankily'], ['masrvi', () => 'Masrvi'], ['sedad', () => 'Sedad']];
 const OC = ['#FFC800', '#3B82F6', '#EC4899', '#10B981', '#8B5CF6', '#F97316'], OS = ['#FFF8DB', '#EFF6FF', '#FDF2F8', '#ECFDF5', '#F5F3FF', '#FFF7ED'];
-const PR = { orders: store.get('orders', []), cat: store.get('cat', null), open: null, sales: null, sm: 'month', pend: {}, timers: {}, poll: null, catBusy: false };
+const PR = { f: 'all', orders: store.get('orders', []), cat: store.get('cat', null), open: null, sales: null, sm: 'month', pend: {}, timers: {}, poll: null, catBusy: false };
 const isPrep = () => (location.hash.replace(/^#\/?/, '').split('/')[0] === 'prep');
 
 /* ---------- helpers from the old page ---------- */
@@ -99,20 +100,33 @@ function view(ord) {
   return { o, st, base, pieces, sub, fee, dsc, total: sub - dsc + fee * 100, done, all, when, sold: ord.status === 'sold', conf: !!st.ok || ord.status === 'sold' };
 }
 const saveLocal = () => store.set('orders', PR.orders);
+/* sold orders leave the list 24 h after the sale (they stay in the sales log, the Sheet and Drive) */
+const shown = o => o.status !== 'removed' && !(o.status === 'sold' && o.soldAt && Date.now() - new Date(o.soldAt).getTime() > 864e5);
+/* progress ring (packed pieces) and a small 7-day sales curve */
+function ring(d, all, col, size = 40) {
+  const r = 16, c = 2 * Math.PI * r, f = all ? c * d / all : 0, full = all && d === all;
+  return `<svg class="ring" width="${size}" height="${size}" viewBox="0 0 40 40" aria-label="${d}/${all}"><circle cx="20" cy="20" r="${r}" fill="none" stroke="#F1ECE3" stroke-width="4"/><circle cx="20" cy="20" r="${r}" fill="none" stroke="${full ? '#16A34A' : col}" stroke-width="4" stroke-linecap="round" stroke-dasharray="${f.toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 20 20)"/>${full ? `<path d="M14 20.5l4 4 8-8.5" fill="none" stroke="#16A34A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>` : `<text x="20" y="24" text-anchor="middle" font-family="Alexandria,sans-serif" font-size="11" fill="#1F2937">${d}/${all}</text>`}</svg>`;
+}
+function spark(vals, w = 116, h = 52) {
+  const mx = Math.max(...vals, 1), rtl = S.lang === 'ar', n = vals.length;
+  const pts = vals.map((v, i) => { const x = n > 1 ? (rtl ? w - i * w / (n - 1) : i * w / (n - 1)) : w / 2; return [x, h - 4 - v / mx * (h - 10)]; });
+  const d = 'M' + pts.map(q => q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join(' L'), l = pts[n - 1];
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" style="overflow:visible;flex:none" aria-hidden="true"><path d="${d} L${pts[n - 1][0]} ${h} L${pts[0][0]} ${h}Z" fill="rgba(255,200,0,.16)"/><path d="${d}" fill="none" stroke="#B98500" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${l[0]}" cy="${l[1]}" r="4" fill="#B98500" stroke="#fff" stroke-width="2"/></svg>`;
+}
 const byId = id => PR.orders.find(o => o.id === id);
 
 /* ---------- catalogue (read from samar.mr by the backend) ---------- */
 async function loadCat(force) {
   if (PR.catBusy) return; if (PR.cat && !force && Date.now() - (PR.cat.got || 0) < 3 * 3600e3) return;
   PR.catBusy = true;
-  try { const c = await api('catalog', { force: !!force }); c.got = Date.now(); PR.cat = c; store.set('cat', c); if (force) toast(tp('cat_ok')); if (isPrep()) drawList(); }
+  try { const c = await api('catalog', { force: !!force }); c.got = Date.now(); PR.cat = c; store.set('cat', c); if (force) toast(tp('cat_ok')); if (isPrep()) drawList(); drawHome(); }
   catch (e) { if (!PR.cat) toast(tp('cat_fail')); }
   PR.catBusy = false;
 }
 
 /* ---------- screen ---------- */
 function vPrep() {
-  const open = PR.orders.filter(o => o.status !== 'removed').length;
+  const open = PR.orders.filter(shown).length;
   return hdr(tp('prep'), open + ' ' + tp('sub_n'), `<button class="ib" data-xcat aria-label="${tp('cat_upd')}">${ic('refresh', 20)}</button>`) +
   `<main class="main" id="prep">
    <div class="card xpaste">
@@ -125,7 +139,7 @@ function vPrep() {
 }
 function listHtml() {
   if (!PR.cat && !PR.catBusy) loadCat();
-  const list = PR.orders.filter(o => o.status !== 'removed');
+  const list = PR.orders.filter(shown);
   if (!list.length) return `<div class="card empty">${PR.cat ? tp('empty') : tp('cat_loading')}</div>`;
   let all = 0, conf = 0, n = 0, cn = 0;
   const views = list.map(o => { const v = view(o); n++; all += v.sub - v.dsc; if (v.conf) { cn++; conf += v.sub - v.dsc; } return v; });
@@ -134,33 +148,37 @@ function listHtml() {
     <div class="grow xs" style="--c:#2563EB;--cb:#EFF6FF"><span>${ic('box', 16)} ${tp('all_orders')} <i>${n}</i></span><b dir="ltr">${mru(all)} <small>MRU</small></b></div>
     <div class="grow xs" style="--c:#16A34A;--cb:#ECFDF3"><span>${ic('check', 16)} ${tp('confirmed')} <i>${cn}</i></span><b dir="ltr">${mru(conf)} <small>MRU</small></b></div></div>
     <div class="bar8" role="img" aria-label="${pct}%"><i style="width:${pct}%;background:linear-gradient(90deg,#22C55E,#16A34A)"></i></div><div class="muted"><b>${pct}%</b> ${tp('pct_note')}</div>
-    <div class="xbt"><button class="btn c sm" data-xall>${ic('truck', 18)}${list.length > 1 ? tp('sup_all') + ' (' + list.length + ')' : tp('sup_one')}</button>${isMgr() ? `<button class="btn o sm" data-xclear>${tp('clear_all')}</button>` : ''}</div></div>`;
-  return sum + list.map((ord, idx) => orderHtml(ord, views[idx], idx)).reverse().join('');
+    <div class="xbt"><button class="btn c sm" data-xall>${ic('truck', 18)}${list.length > 1 ? tp('sup_all') + ' (' + list.length + ')' : tp('sup_one')}</button></div></div>`;
+  const fl = [['all', n], ['wait', n - cn], ['conf', cn]];
+  const tabs = `<div class="pills" role="tablist">${fl.map(([k, c]) => `<button class="pill${PR.f === k ? ' on' : ''}" data-xf="${k}" role="tab">${tp('h_f_' + k)}<span class="n">${c}</span></button>`).join('')}</div>`;
+  const keep = v => PR.f === 'all' || (PR.f === 'conf' ? v.conf : !v.conf);
+  const cards = list.map((ord, idx) => keep(views[idx]) ? orderHtml(ord, views[idx], idx) : '').reverse().join('');
+  return sum + tabs + (cards || `<div class="card empty">${tp('h_none')}</div>`);
 }
 function orderHtml(ord, v, idx) {
   const { o, st } = v, cat = CAT(), open = PR.open === ord.id, oc = OC[idx % OC.length], os = OS[idx % OS.length];
   const nProd = o.lines.filter(l => l.qty > 0).length;
-  const state = v.sold ? `<span class="xst sold">💰 ${tp('sold')}</span>` : (v.all && v.done === v.all ? `<span class="xst rd">${tp('ready')}</span>` : `<span class="xst">${v.done}/${v.all}</span>`);
+  const state = v.sold ? `<span class="xst sold">${tp('sold')}</span>` : v.conf ? `<span class="xst ok">${tp('ok_short')}</span>` : '';
   let h = `<div class="xo${open ? ' open' : ''}" data-xo="${ord.id}" style="--oc:${oc};--os:${os}">
-   <button class="xh" data-xh aria-expanded="${open}"><span class="xn">${idx + 1}</span><span class="xw"><span>${esc(o.name || tp('order') + ' ' + (idx + 1))}</span><small>${nProd} ${tp('products')} · ${v.pieces} ${tp('pieces')}${v.conf ? ' · <b style="color:#166534">' + tp('ok_short') + '</b>' : ''}${v.when ? ' · <bdi dir="ltr">🕒 ' + esc(v.when) + '</bdi>' : ''}${ord.no ? ' · <bdi dir="ltr">' + esc(ord.no) + '</bdi>' : ''}</small></span>${state}<span class="xchev">${ic('chev', 20)}</span></button>`;
+   <button class="xh" data-xh aria-expanded="${open}">${ring(v.done, v.all, oc, 42)}<span class="xw"><span>${esc(o.name || tp('order') + ' ' + (idx + 1))}</span><small>${v.pieces} ${tp('pieces')}${o.city ? ' · ' + esc(o.city) : ''} · <bdi dir="ltr" class="d">${mru(v.total)} MRU</bdi>${ord.no ? ' · <bdi dir="ltr">' + esc(ord.no) + '</bdi>' : ''}</small></span>${state}<span class="xchev">${ic('chev', 20)}</span></button>`;
   if (!open) return h + '</div>';
   h += '<div class="xb">';
   if (o.name || o.phone || o.city || o.address || v.when || o.note) {
-    h += `<div class="xc">${o.name ? `<b>👤 ${esc(o.name)}</b>` : ''}${v.when ? `<span>🕒 <bdi dir="ltr">${esc(v.when)}</bdi></span>` : ''}${o.phone ? `<button class="xphb" data-xph="${esc(o.phone.replace(/\s+/g, ''))}">${ic('phone', 16)}<bdi dir="ltr">${esc(o.phone)}</bdi><small>${tp('copy')}</small></button>` : ''}${o.city || o.address ? `<span>📍 ${esc([o.city, o.address].filter(Boolean).join('، '))}</span>` : ''}${o.note ? `<span>📝 ${esc(o.note)}</span>` : ''}</div>`;
+    h += `<div class="xc">${o.name ? `<b>${ic('user', 16)}${esc(o.name)}</b>` : ''}${v.when ? `<span>${ic('clock', 16)}<bdi dir="ltr">${esc(v.when)}</bdi></span>` : ''}${o.phone ? `<button class="xphb" data-xph="${esc(o.phone.replace(/\s+/g, ''))}">${ic('phone', 16)}<bdi dir="ltr">${esc(o.phone)}</bdi><small>${tp('copy')}</small></button>` : ''}${o.city || o.address ? `<span>${ic('pin', 16)}${esc([o.city, o.address].filter(Boolean).join('، '))}</span>` : ''}${o.note ? `<span>${ic('note', 16)}${esc(o.note)}</span>` : ''}</div>`;
   }
-  h += `<div class="row"><span class="d" style="font-size:14px;color:#16A34A">✓ ${v.done} / ${v.all} ${tp('pieces')}</span><div class="bar8 grow"><i style="width:${v.all ? v.done / v.all * 100 : 0}%;background:linear-gradient(90deg,#22C55E,#16A34A)"></i></div></div>`;
+  h += `<div class="xprog"><span>${tp('h_packed')} <b class="d">${v.done}</b> ${tp('h_of')} ${v.all} ${tp('pieces')}</span><span class="bar8"><i style="width:${v.all ? v.done / v.all * 100 : 0}%;background:${v.all && v.done === v.all ? '#16A34A' : 'var(--navy)'}"></i></span></div>`;
   o.lines.forEach((l, i) => {
     const p = cat[l.code], off = !l.qty, done = st.ticks && st.ticks[i];
-    if (!p) { h += `<div class="xp bad"><div class="xi"><b>✗ ${tp('unknown')}: <bdi dir="ltr">${esc(l.code)}</bdi></b><span>${tp('unknown_s')}</span></div></div>`; return; }
+    if (!p) { h += `<div class="xp bad"><div class="xi"><b>${tp('unknown')}: <bdi dir="ltr">${esc(l.code)}</bdi></b><span>${tp('unknown_s')}</span></div></div>`; return; }
     h += `<div class="xp${off ? ' off' : done ? ' done' : ''}">
      <div class="xr1"><div class="ximg" style="background-image:url('${esc(img(p.i))}')"><span class="xq">×${l.qty}</span></div>
       <div class="xi"><span class="xbr" dir="auto">${esc(p.b)}${l.added ? ` <b class="tag${l.gift ? ' g' : ''}">${l.gift ? tp('gift_tag') : tp('added_tag')}</b>` : ''}</span><span class="xt" dir="auto">${esc(ptitle(l.code, p))}</span>
        ${off ? '' : `<span class="xpr">${l.gift ? `<b style="color:#16A34A">${tp('gift')}</b>` : `<bdi dir="ltr"><b>${mru(p.p)}</b>${l.qty > 1 ? ` × ${l.qty} = <b>${mru(p.p * l.qty)}</b>` : ''} MRU</bdi>`}</span>`}
        <span class="xm"><bdi dir="ltr">${esc(l.code)}${p.sc ? ' · ' + esc(p.sc) : ''}${p.bc ? ' · ' + esc(p.bc) : ''}</bdi></span></div></div>
-     <div class="xr2">${off ? `<span class="xoffn">✗ ${tp('not_avail')}</span><span class="grow"></span><button class="btn o sm" data-xback="${i}">${ic('undo', 16)}${tp('back')}</button>`
+     <div class="xr2">${off ? `<span class="xoffn">${tp('not_avail')}</span><span class="grow"></span><button class="btn o sm" data-xback="${i}">${ic('undo', 16)}${tp('back')}</button>`
        : `<span class="xstep"><button data-xq="${i}:1" aria-label="+">+</button><b>${l.qty}</b><button data-xq="${i}:-1" aria-label="−"${l.qty <= 1 ? ' disabled' : ''}>−</button></span><button class="xoff" data-xoff="${i}" aria-label="${tp('not_avail')}">${ic('x', 16)}</button>${l.qty !== l.orig ? `<span class="muted">${tp('was')} ×${l.orig}</span>` : ''}<span class="grow"></span><button class="xtk" data-xt="${i}" aria-pressed="${!!done}">${ic('check', 20, 'currentColor', 2.6)}<span>${tp('packed')}</span></button>`}</div></div>`;
   });
-  (st.free || []).forEach((fr, k) => { h += `<div class="xfree">🎁 <span class="grow" dir="auto">${esc(fr.t)}</span><button class="xoff" data-xfd="${k}" aria-label="✕">${ic('x', 16)}</button></div>`; });
+  (st.free || []).forEach((fr, k) => { h += `<div class="xfree">${ic('gift', 16)}<span class="grow" dir="auto">${esc(fr.t)}</span><button class="xoff" data-xfd="${k}" aria-label="✕">${ic('x', 16)}</button></div>`; });
   h += `<div class="xbt"><button class="btn c sm" data-xaddopen>${ic('plus', 18)}${tp('add_product')}</button><button class="btn c sm" data-xgift>${ic('gift', 18)}${st.free && st.free.length ? tp('free_gift_on') : tp('free_gift')}</button></div>
    <div class="xaddbox" hidden><input class="inp" type="search" enterkeyhint="search" data-xaddq placeholder="${tp('search_ph')}"><div class="xres"></div></div>
    <div class="xfreebox" hidden><input class="inp" type="text" data-xfreet placeholder="${tp('gift_ph')}"><button class="btn y sm" data-xfadd>${tp('add_gift')}</button></div>
@@ -176,17 +194,17 @@ function orderHtml(ord, v, idx) {
    <div class="xact">
     <button class="xa" data-xprint style="--c:#8A6400;--cb:#FFF4CC"><span class="xai">${ic('print', 22)}</span><span>${tp('receipt_a4')}</span></button>
     <button class="xa" data-xsup style="--c:#2563EB;--cb:#EFF6FF"><span class="xai">${ic('truck', 22)}</span><span>${tp('sup_one')}</span></button>
-    <button class="xa" data-ximg style="--c:#7C3AED;--cb:#F5F3FF"><span class="xai">${ic('image', 22)}</span><span>${tp('receipt_img')}</span></button>
+    <button class="xa" data-ximg style="--c:#7C3AED;--cb:#F5F3FF"><span class="xai">${ic('image', 22)}</span><span>${S.lang === 'ar' ? 'صورة' : 'Image'}</span></button>
    </div>
-   <div class="xdo"><button class="btn ${v.conf ? 'gs' : 'g'}" data-xconf${v.sold ? ' disabled' : ''}>${ic(v.conf ? 'check' : 'phone', 18)}${v.conf ? tp('confirmed_btn') : tp('confirm')}</button>
-    <button class="btn ${v.sold ? 'o' : ''}" data-xsold>${ic(v.sold ? 'check' : 'coins', 18, v.sold ? 'currentColor' : '#FFC800')}${v.sold ? tp('sold_btn') : tp('sell')}</button></div>
+   <div class="xdo"><button class="btn ${v.sold ? 'o' : ''}" data-xsold>${ic('check', 18, v.sold ? 'currentColor' : '#FFC800', 2.4)}${v.sold ? tp('sold_btn') : tp('sell')}</button>
+    <button class="btn ${v.conf ? 'gs' : 'o'}" data-xconf${v.sold ? ' disabled' : ''}>${ic(v.conf ? 'check' : 'phone', 18)}${v.conf ? tp('confirmed_btn') : tp('confirm')}</button></div>
    <button class="xrm" data-xrm>${ic('trash', 16)}${tp('remove')}</button></div></div>`;
   return h;
 }
 function drawList(keepScroll = true) {
   const el = document.getElementById('x-list'); if (!el) return;
   const y = window.scrollY; el.innerHTML = listHtml(); if (keepScroll) window.scrollTo(0, y);
-  const s = document.querySelector('.top .sub'); if (s) s.textContent = PR.orders.filter(o => o.status !== 'removed').length + ' ' + tp('sub_n');
+  const s = document.querySelector('.top .sub'); if (s) s.textContent = PR.orders.filter(shown).length + ' ' + tp('sub_n');
 }
 function drawTotals(box, ord) {
   const v = view(ord); box.querySelector('.xtv').textContent = mru(v.total) + ' MRU';
@@ -213,6 +231,7 @@ async function pullOrders() {
     PR.orders = list.map(o => keep[o.id] || o); saveLocal();
     const f = document.activeElement; const typing = f && /INPUT|TEXTAREA/.test(f.tagName) && f.closest('#prep');
     if (isPrep() && !typing) drawList();
+    drawHome();
   } catch (e) { /* offline: keep what we have */ }
 }
 
@@ -242,12 +261,11 @@ function salesHtml() {
   const ym = new Date().toISOString().slice(0, 7);
   const mo = list.filter(x => String(x.at).slice(0, 7) === ym), sum = a => a.reduce((s, x) => s + (+x.total || 0), 0);
   const shown = PR.sm === 'month' ? mo : list;
-  return `<div class="h2" style="margin-top:8px">📒 ${tp('sales')}</div><div class="card" style="display:flex;flex-direction:column;gap:12px">
+  return `<div class="h2" style="margin-top:8px">${tp('sales')}</div><div class="card" style="display:flex;flex-direction:column;gap:12px">
    <div class="row" style="gap:8px"><div class="grow xs" style="--c:#8A6400;--cb:#FFF4CC"><span>${tp('this_month')} <i>${mo.length}</i></span><b>${Math.round(sum(mo)).toLocaleString('en-US')} <small>MRU</small></b></div><div class="grow xs" style="--c:#2563EB;--cb:#EFF6FF"><span>${tp('all')} <i>${list.length}</i></span><b>${Math.round(sum(list)).toLocaleString('en-US')} <small>MRU</small></b></div></div>
    <div class="xbt"><button class="btn y sm" data-xls="month">${ic('download', 18)}${tp('xls_month')}</button><button class="btn c sm" data-xls="all">${ic('download', 18)}${tp('xls_all')}</button></div>
    <div class="seg"><button class="${PR.sm === 'month' ? 'on' : ''}" data-xsm="month">${tp('this_month')}</button><button class="${PR.sm === 'all' ? 'on' : ''}" data-xsm="all">${tp('all')}</button></div>
    ${shown.length ? shown.slice().reverse().slice(0, 60).map(x => `<div class="row" style="border-bottom:1px solid #EFEBE4;padding-bottom:10px"><div class="grow"><div style="font-weight:600">${esc(x.name || x.no)}</div><div class="muted"><bdi dir="ltr">${esc(stamp(new Date(x.at).getTime()))} · ${esc(x.no)}</bdi> · ${x.pieces} ${tp('pieces')}${x.pay ? ' · ' + esc((PAYS.find(p => p[0] === x.pay) || [, () => x.pay])[1]()) : ''}${x.file ? ` · <a href="${esc(x.file)}" target="_blank" rel="noopener">PNG</a>` : ''}</div></div><b class="d" dir="ltr">${Math.round(+x.total).toLocaleString('en-US')} MRU</b><button class="xoff" data-xsdel="${esc(x.id)}" aria-label="✕">${ic('x', 16)}</button></div>`).join('') : `<div class="empty">${tp('no_sales')}</div>`}
-   <label class="btn c sm" style="cursor:pointer">${ic('download', 18)}${tp('imp')}<input type="file" accept=".csv,.tsv,.txt,text/csv,text/plain" data-ximp hidden></label><div class="muted" style="text-align:center;margin-top:-6px">${tp('imp_s')}</div>
    <div class="muted">${tp('sales_note')}</div></div>`;
 }
 /* import the sales log of the old tajhiz page (its «Excel» file: UTF-16 tab-separated; also accepts a CSV re-saved by Excel / Sheets) */
@@ -283,7 +301,7 @@ async function importSales(file) {
   try { const r = await api('sales.import', { sales }); toast('✓ ' + tp('imp_ok') + ' ' + r.added + (r.skipped ? ' · ' + r.skipped + ' ' + tp('imp_skip') : '')); loadSales(); }
   catch (e) { fail(e); }
 }
-async function loadSales() { if (!isMgr()) return; try { PR.sales = await api('sales.list', {}); const el = document.getElementById('x-sales'); if (el) el.innerHTML = salesHtml(); } catch (e) {} }
+async function loadSales() { if (!isMgr()) return; try { PR.sales = await api('sales.list', {}); const el = document.getElementById('x-sales'); if (el) el.innerHTML = salesHtml(); drawHome(); } catch (e) {} }
 
 /* ---------- files: download in a browser, save/share through the APK ---------- */
 function b64(buf) { let s = ''; const b = new Uint8Array(buf); for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000)); return btoa(s); }
@@ -408,14 +426,20 @@ function addSearch(q) {
 }
 
 /* ---------- events ---------- */
+const BUSY = ['xgo', 'xpaste', 'xcat', 'xall', 'xprint', 'xsup', 'ximg', 'xsold', 'xrm', 'xsdel', 'xls'];
 document.addEventListener('click', async e => {
   if (!isPrep()) return;
-  const el = e.target.closest('button,a'); if (!el) return;
+  const el = e.target.closest('button,a'); if (!el || el.classList.contains('busy')) return;
+  if (BUSY.some(k => k in el.dataset)) { el.classList.add('busy'); try { await prepClick(e, el); } finally { const again = document.querySelector('.busy'); if (again) again.classList.remove('busy'); el.classList.remove('busy'); } return; }
+  return prepClick(e, el);
+});
+async function prepClick(e, el) {
   const ds = el.dataset, box = el.closest('[data-xo]'), ord = box && byId(box.dataset.xo);
+  if (ds.xf) { PR.f = ds.xf; return drawList(); }
   if ('xgo' in ds) return addText(document.getElementById('x-in').value);
   if ('xpaste' in ds) { const tx = document.getElementById('x-in'); try { const t = await navigator.clipboard.readText(); if (t) return addText(t); } catch (er) {} tx.focus(); return; }
   if ('xcat' in ds) return loadCat(true);
-  if ('xall' in ds) { let lines = []; PR.orders.filter(o => o.status !== 'removed').forEach(o => { lines = lines.concat(view(o).o.lines); }); return supplierOrder(lines); }
+  if ('xall' in ds) { let lines = []; PR.orders.filter(shown).forEach(o => { lines = lines.concat(view(o).o.lines); }); return supplierOrder(lines); }
   if ('xclear' in ds) { if (!(await ask(tp('clear_q'), tp('clear_all')))) return; try { await api('orders.clear'); PR.orders = []; saveLocal(); drawList(); } catch (er) { fail(er); } return; }
   if (ds.xls) return downloadXls(ds.xls);
   if (ds.xsm) { PR.sm = ds.xsm; document.getElementById('x-sales').innerHTML = salesHtml(); return; }
@@ -442,7 +466,7 @@ document.addEventListener('click', async e => {
   if ('ximg' in ds) { try { const no = await receiptNo(ord), blob = await receiptPng(ord, no); if (!blob) return toast(tp('img_fail')); await saveFile(blob, 'samar-' + no + '.png'); toast('✓ ' + tp('saved_img')); } catch (er) { fail(er); } return; }
   if ('xsold' in ds) return sell(ord);
   if ('xrm' in ds) { if (!(await ask(tp('remove_q'), tp('remove').split(' ')[0]))) return; try { await api('orders.remove', { id: ord.id }); PR.orders = PR.orders.filter(o => o.id !== ord.id); saveLocal(); drawList(); toast(tp('removed')); } catch (er) { fail(er); } }
-});
+}
 document.addEventListener('input', e => {
   if (!isPrep()) return;
   const t = e.target, box = t.closest('[data-xo]'), ord = box && byId(box.dataset.xo);
@@ -454,12 +478,42 @@ document.addEventListener('input', e => {
 document.addEventListener('change', e => { if (isPrep() && e.target.matches('[data-ximp]') && e.target.files[0]) { importSales(e.target.files[0]); e.target.value = ''; } });
 document.addEventListener('paste', e => { if (e.target && e.target.id === 'x-in') setTimeout(() => addText(e.target.value), 0); });
 
+
+/* ---------- summary on the Home page ---------- */
+function homeHtml() {
+  const list = PR.orders.filter(shown), now = new Date(), today = dayKey(now), month = today.slice(0, 7);
+  const isToday = s => s && dayKey(new Date(s)) === today;
+  const open = list.map((o, i) => ({ o, v: view(o), i })).filter(x => x.o.status !== 'sold');
+  const wait = open.filter(x => !x.v.conf).length, conf = open.length - wait;
+  const soldN = PR.orders.filter(o => o.status === 'sold' && isToday(o.soldAt)).length;
+  let kpi = '';
+  if (isMgr() && PR.sales) {
+    const days = [...Array(7)].map((_, k) => { const d = new Date(now); d.setDate(d.getDate() - 6 + k); return dayKey(d); }), by = {};
+    let m = 0; PR.sales.forEach(s => { const k = s.at ? dayKey(new Date(s.at)) : ''; by[k] = (by[k] || 0) + (+s.total || 0); if (k.slice(0, 7) === month) m += +s.total || 0; });
+    const vals = days.map(k => by[k] || 0), d = vals[6], y = vals[5], pc = y ? Math.round((d - y) / y * 100) : null;
+    kpi = `<div class="kpi"><div class="grow"><small>${tp('h_day')}</small><b dir="ltr">${Math.round(d).toLocaleString('en-US')} <span>MRU</span></b>
+      <div class="kpi2">${pc != null ? `<span class="trend ${pc < 0 ? 'neg' : ''}">${ic(pc < 0 ? 'down' : 'up', 12, 'currentColor', 2.2)}<bdi dir="ltr">${Math.abs(pc)}%</bdi> ${tp('h_vs')}</span>` : ''}<span>${tp('h_month')}: <bdi dir="ltr" class="d">${Math.round(m).toLocaleString('en-US')}</bdi></span></div></div>${spark(vals)}</div>`;
+  }
+  const tri = `<div class="tri"><a href="#prep" data-xhf="wait"><b>${wait}</b><span><i style="background:#F59E0B"></i>${tp('h_wait')}</span></a><a href="#prep" data-xhf="conf"><b>${conf}</b><span><i style="background:#3B82F6"></i>${tp('h_conf')}</span></a><a href="#prep" data-xhf="all"><b>${soldN}</b><span><i style="background:#22C55E"></i>${tp('h_sold')}</span></a></div>`;
+  const rows = open.slice(-4).reverse().map(({ o, v, i }) => `<a class="lrow" href="#prep" data-xhopen="${o.id}" style="text-decoration:none">${ring(v.done, v.all, OC[i % OC.length])}<span class="lr-t"><b>${esc(v.o.name || tp('order'))}</b><small>${v.pieces} ${tp('pieces')}${v.o.city ? ' · ' + esc(v.o.city) : ''}<span class="chip ${v.conf ? 'st-done' : 'st-prog'}">${v.conf ? tp('ok_short').replace('✓ ', '') : tp('h_wait')}</span></small></span><b class="amt" dir="ltr">${mru(v.total)} <small>MRU</small></b></a>`).join('');
+  return `<div class="card list">${kpi}${tri}</div>
+  <div class="h2 row between"><span>${tp('h_t')}</span><a href="#prep" class="xhl">${tp('h_f_all')} ${ic('chev', 16, 'currentColor', 2, 'go')}</a></div>
+  <div class="card list">${rows || `<div class="empty">${tp('h_none')}</div>`}${open.length > 4 ? `<a href="#prep" class="xhl" style="justify-content:center;padding:10px;border-top:1px solid var(--hair);display:flex"><bdi dir="ltr">+${open.length - 4}</bdi>&nbsp;${tp('h_more')}</a>` : ''}</div>`;
+}
+window.prepHome = () => { try { return homeHtml(); } catch (e) { return ''; } };
+function drawHome() {
+  const el = document.getElementById('x-home'); if (el) el.innerHTML = window.prepHome();
+  const n = document.getElementById('x-hn'); if (n) n.textContent = PR.orders.filter(o => shown(o) && o.status !== 'sold').length;
+}
+document.addEventListener('click', e => { const a = e.target.closest('[data-xhopen],[data-xhf]'); if (!a) return; if (a.dataset.xhopen) { PR.open = a.dataset.xhopen; PR.f = 'all'; } else PR.f = a.dataset.xhf; });
+
 /* ---------- route ---------- */
 routes.prep = vPrep;
 const prevHook = window.onRoute;
 window.onRoute = (name, arg) => {
   if (prevHook) prevHook(name, arg);
   clearInterval(PR.poll);
+  if (name === 'home') { loadCat(); pullOrders(); loadSales(); PR.poll = setInterval(() => { if (document.visibilityState === 'visible') pullOrders(); }, 30000); return; }
   if (name !== 'prep') return;
   loadCat(); pullOrders(); loadSales();
   PR.poll = setInterval(() => { if (document.visibilityState === 'visible') pullOrders(); }, 15000);
@@ -477,6 +531,7 @@ const RC_CSS = `.rcp{font-family:'Readex Pro',Arial,sans-serif;color:#000;font-s
 .bc h2{margin:0 0 4px;font-size:18pt}.rc-sum{margin-top:8px;font-weight:700;text-align:right}.rc-sign{display:flex;justify-content:space-between;gap:20px;margin-top:28px}.rc-sign div{flex:1;border-top:1px solid #000;padding-top:4px;font-size:9pt}`;
 const css = document.createElement('style');
 css.textContent = `
+.xhg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.xhs{background:var(--cb);border-radius:14px;padding:10px;display:flex;flex-direction:column;gap:4px;color:var(--c)}.xhs .ti{display:flex}.xhs b{font:500 22px/1 var(--d);color:#1F2937}.xhs>span:last-child{font-size:12px;color:var(--c);font-weight:500}.xhm{display:grid;grid-template-columns:1fr 1fr;gap:8px}.xhm>div{background:linear-gradient(135deg,#1F2937,#374151);color:#fff;border-radius:14px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--sh)}.xhm span{font-size:12px;color:#FFC800}.xhm b{font:500 18px/1.1 var(--d)}.xhm small{font-size:11px;color:#D1D5DB}.xhr{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;padding:10px 12px;border-radius:14px;background:#FAF8F5;border-inline-start:4px solid var(--oc)}.xhr .grow{display:flex;flex-direction:column;gap:3px;min-width:0}.xhr .grow>b{font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.xhr small{font-size:12px;color:var(--grey)}.xhr em{font-style:normal;color:#166534;font-weight:600}.xhr .bar8{display:block;height:5px;margin-top:2px}.xhr .bar8 i{background:var(--oc)}.xht{font:500 15px/1 var(--d);white-space:nowrap}.xht small{font-size:10.5px;color:var(--grey)}.xhl{display:inline-flex;align-items:center;gap:2px;font-size:13px;font-weight:600;color:#8A6400;text-decoration:none}.xhl svg{transform:rotate(-90deg)}[dir=rtl] .xhl svg{transform:rotate(90deg)}.xhr:active,.xhl:active{transform:scale(.97)}
 .xs{background:var(--cb,var(--bg));border-radius:16px;padding:10px 12px;display:flex;flex-direction:column;gap:2px}.xs span{font-size:12.5px;color:var(--c,var(--grey));display:flex;align-items:center;gap:4px;font-weight:600}.xs i{font-style:normal}.xs b{font:500 21px var(--d);color:var(--navy)}.xs small{font-size:11px;color:var(--grey)}
 .xpaste{display:flex;flex-direction:column;gap:10px;background:linear-gradient(180deg,#fff,#FFFBEB)}.xpaste textarea{border-style:dashed;border-color:#E9D9A6;background:#fff}
 .xo{background:#fff;border-radius:22px;box-shadow:var(--sh);overflow:hidden;border:1px solid rgba(236,229,216,.75)}
@@ -516,6 +571,48 @@ css.textContent = `
 .xai{width:42px;height:42px;border-radius:14px;background:var(--cb);color:var(--c);display:flex;align-items:center;justify-content:center}
 .xdo{display:grid;grid-template-columns:1fr 1fr;gap:8px}.xdo .btn{padding:0 8px;min-height:52px}
 .xrm{align-self:center;border:0;background:none;color:var(--red);font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 12px}
+
+/* ===== design A ===== */
+.kpi{display:flex;align-items:flex-end;gap:12px;padding:16px 18px 14px}
+.kpi small{font-size:12.5px;color:var(--grey)}.kpi>div>b{display:block;font:600 32px/1.15 var(--d);margin-top:2px}.kpi>div>b span{font:400 13px 'Readex Pro',sans-serif;color:var(--grey)}
+.kpi2{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:6px;font-size:12px;color:var(--grey)}
+.trend{display:inline-flex;align-items:center;gap:3px;color:#15803D;background:#ECFDF3;border-radius:99px;padding:2px 8px}.trend.neg{color:#B42318;background:#FEF3F2}
+.tri{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.kpi+.tri{border-top:1px solid var(--hair)}
+.tri a{padding:12px 16px;display:flex;flex-direction:column;gap:1px;text-decoration:none;color:inherit;min-height:64px}.tri a+a{border-inline-start:1px solid var(--hair)}
+.tri b{font:600 22px/1.2 var(--d)}.tri span{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--grey)}.tri i{width:7px;height:7px;border-radius:50%;flex:none}
+.lrow .ring{flex:none}
+.amt{font:600 15px var(--d);white-space:nowrap}.amt small{font:400 11px 'Readex Pro',sans-serif;color:var(--grey)}
+.lr-t .chip{margin-inline-start:2px}
+.xpaste{background:#fff}.xpaste textarea{border:1.5px dashed #E5D7AE;background:#FFFDF6;border-radius:16px}
+.xs{border-radius:16px}
+.xo{border:1px solid var(--line);box-shadow:none;border-radius:22px}
+.xo.open{border-color:#E8DCB8;box-shadow:0 14px 34px -18px rgba(185,133,0,.45)}
+.xh{background:#fff;border:0!important;min-height:68px;padding:12px 14px;gap:12px}
+.xo.open .xh{border-bottom:1px solid var(--hair)!important}
+.xw{font-weight:500;font-size:15.5px}.xw small{font-size:12px}
+.xst{box-shadow:none;font-weight:500;font-size:11.5px;padding:3px 10px;background:#F1ECE3;color:#6B6458}.xst.ok{background:#ECFDF3;color:#15803D}.xst.sold{background:var(--navy);color:var(--yel)}
+.xchev{color:#B5AE9F}
+.xc{background:#FAF8F5;border:1px solid var(--hair);font-size:13.5px;gap:6px}.xc>b,.xc>span{display:flex;align-items:center;gap:8px}.xc>b{font-weight:600}.xc svg{flex:none;color:var(--grey)}
+.xphb{box-shadow:none;border:1px solid var(--line);background:#fff}
+.xprog{display:flex;flex-direction:column;gap:6px;font-size:12.5px;color:var(--grey)}.xprog b{color:var(--navy)}
+.xp{border:1px solid var(--line);box-shadow:none;border-radius:18px}
+.xp.done{background:#F6FBF7;border-color:#CBEBD5}
+.xbr{color:var(--gold);font-weight:500;font-size:11.5px}.xt{font-weight:500}
+.ximg{border-radius:14px;background-color:#F4F0E8}
+.xq{border-radius:8px;font-size:12px}
+.xr2{border-top:1px solid var(--hair)}
+.xstep{background:#fff;border:1px solid var(--line);border-radius:12px}.xstep button{width:38px;height:38px;color:#6B6458}
+.xoff{border-radius:12px;background:#fff;border:1px solid #F5D0CC}
+.xtk{border-radius:12px;border:1.7px solid #D6CFC2;color:#8C8577;height:42px}
+.xp.done .xtk{background:var(--navy);border-color:var(--navy);color:var(--yel);box-shadow:none}
+.xfree{border-radius:14px}
+.xco{background:#FAF8F5;border:1px solid var(--hair)}
+.xtot{background:var(--navy);border-radius:16px;box-shadow:none}
+.xact{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.xa{flex-direction:row;justify-content:center;min-height:46px;padding:0 6px;border:1.5px solid #E5DED2;box-shadow:none;border-radius:14px;font-weight:500;font-size:12.5px;gap:6px}
+.xai{width:auto;height:auto;background:none;color:var(--navy)}.xai svg{width:18px;height:18px}
+.xdo{grid-template-columns:1.25fr 1fr}.xdo .btn.gs{background:#ECFDF3;border-color:#ECFDF3;color:#15803D;box-shadow:none}.xa span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.xa{font-size:12px;gap:5px;padding:0 4px}.xdo .btn{min-height:54px}
+.xra{box-shadow:none;border:1px solid var(--line)}
 #x-print{display:none}
 @media print{body>*:not(#x-print){display:none!important}#x-print{display:block!important}@page{size:A4 portrait;margin:0}}
 ${RC_CSS}`;
@@ -538,7 +635,7 @@ if (typeof DEMO !== 'undefined' && DEMO) {
     'orders.remove'({ id }) { dOrders.find(x => x.id === id).status = 'removed'; return true; },
     'orders.clear'() { dOrders.forEach(o => o.status = 'removed'); return true; },
     'orders.number'({ id }) { const o = dOrders.find(x => x.id === id); if (!o.no) { const d = new Date(); o.no = 'S-' + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0') + '-' + String(++dn).padStart(2, '0'); } return { no: o.no }; },
-    'orders.sell'({ id, sale }) { const o = dOrders.find(x => x.id === id); this['orders.number']({ id }); o.status = 'sold'; const s = { ...sale, id, no: o.no, at: now(), soldBy: 'u1', file: '' }; dSales = dSales.filter(x => x.id !== id).concat([s]); return { order: JSON.parse(JSON.stringify(o)), file: '' }; },
+    'orders.sell'({ id, sale }) { const o = dOrders.find(x => x.id === id); this['orders.number']({ id }); o.status = 'sold'; o.soldAt = now(); const s = { ...sale, id, no: o.no, at: now(), soldBy: 'u1', file: '' }; dSales = dSales.filter(x => x.id !== id).concat([s]); return { order: JSON.parse(JSON.stringify(o)), file: '' }; },
     'sales.list'() { return dSales.slice(); },
     'sales.delete'({ id }) { dSales = dSales.filter(x => x.id !== id); const o = dOrders.find(x => x.id === id); if (o && o.status === 'sold') o.status = 'open'; return true; },
     'bc.next'() { const d = new Date(); return { no: 'BC-' + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0') + '-' + String(++bn).padStart(2, '0') }; },
