@@ -16,7 +16,7 @@ ar: { prep: 'التجهيز', sub_n: 'طلبات مفتوحة', paste_ph: 'ال�
   remove: 'إزالة هذا الطلب', remove_q: 'إزالة هذا الطلب من القائمة؟', removed: 'تمت إزالة الطلب', copied: 'نُسخ الرقم', copy: 'نسخ', saved_img: 'حُفظ الإيصال كصورة', img_fail: 'تعذّر إنشاء الصورة',
   sold_ok: 'سُجّل البيع', sold_upd: 'تم تحديث البيع', archived: 'وحُفظ الإيصال في Drive', conf_on: '✓ الطلب مؤكد', conf_off: 'أُلغي التأكيد', gift_on: '🎁 أُضيفت هدية مجانية', gift_off: 'أُزيلت الهدية', gift_added: '🎁 أُضيفت الهدية', gift_del: 'حُذفت الهدية', prod_added: '✓ أُضيف',
   sales: 'سجل المبيعات', this_month: 'هذا الشهر', all: 'الكل', sales_n: 'بيع', xls_month: 'Excel هذا الشهر', xls_all: 'Excel الكل', no_sales: 'لا توجد مبيعات في هذه الفترة', sdel_q: 'حذف هذا البيع من السجل؟ يرجع الطلب غير مباع.', sdel_ok: 'حُذف البيع من السجل', sales_note: 'المبيعات محفوظة في Google Sheets، والإيصالات في Drive › samarHive › Receipts.',
-  cat_loading: 'تحميل المنتجات…', cat_fail: 'تعذّر تحميل المنتجات من samar.mr — يظهر الرمز فقط', cat_upd: 'تحديث المنتجات', cat_ok: 'تم تحديث المنتجات', sync: 'يتم الحفظ…', packed: 'تم', empty: 'لا توجد طلبات. الصق رسالة طلب من واتساب للبدء.', bc_saved: 'حُفظ طلب المورد في Drive' },
+  imp: 'استيراد من صفحة التجهيز القديمة', imp_s: 'في الصفحة القديمة اضغط «Excel الكل» ثم اختر الملف هنا', imp_ok: 'تم استيراد', imp_skip: 'موجودة مسبقاً', imp_bad: 'هذا ليس ملف المبيعات من صفحة التجهيز', cat_loading: 'تحميل المنتجات…', cat_fail: 'تعذّر تحميل المنتجات من samar.mr — يظهر الرمز فقط', cat_upd: 'تحديث المنتجات', cat_ok: 'تم تحديث المنتجات', sync: 'يتم الحفظ…', packed: 'تم', empty: 'لا توجد طلبات. الصق رسالة طلب من واتساب للبدء.', bc_saved: 'حُفظ طلب المورد في Drive' },
 fr: { prep: 'Préparation', sub_n: 'commandes ouvertes', paste_ph: 'Collez ici le message WhatsApp de la commande… il est ajouté et la case se vide', paste: 'Coller', add_order: 'Ajouter la commande',
   no_code: 'Aucun code produit (ex. SM261002) dans le message.', added: 'Ajouté', orders_w: 'commandes', order_w: 'la commande', ready_next: 'prêt pour la suivante', dup_one: 'Cette commande est déjà enregistrée', dup_many: 'déjà enregistrées',
   all_orders: 'Toutes', confirmed: 'Confirmées', pct_note: 'de la valeur confirmée · sans livraison', sup_all: 'Bon de commande pour tout', sup_one: 'Bon de cde', clear_all: 'Vider la liste', clear_q: 'Retirer toutes les commandes de la liste ? Les ventes restent.',
@@ -28,7 +28,7 @@ fr: { prep: 'Préparation', sub_n: 'commandes ouvertes', paste_ph: 'Collez ici l
   remove: 'Retirer cette commande', remove_q: 'Retirer cette commande de la liste ?', removed: 'Commande retirée', copied: 'Numéro copié', copy: 'Copier', saved_img: 'Reçu enregistré en image', img_fail: 'Image impossible',
   sold_ok: 'Vente enregistrée', sold_upd: 'Vente mise à jour', archived: 'et reçu gardé dans Drive', conf_on: '✓ Commande confirmée', conf_off: 'Confirmation annulée', gift_on: '🎁 Cadeau ajouté', gift_off: 'Cadeau retiré', gift_added: '🎁 Cadeau ajouté', gift_del: 'Cadeau supprimé', prod_added: '✓ Ajouté',
   sales: 'Ventes', this_month: 'Ce mois', all: 'Tout', sales_n: 'ventes', xls_month: 'Excel du mois', xls_all: 'Excel tout', no_sales: 'Aucune vente sur cette période', sdel_q: 'Supprimer cette vente ? La commande redevient non vendue.', sdel_ok: 'Vente supprimée', sales_note: 'Les ventes sont dans Google Sheets, les reçus dans Drive › samarHive › Receipts.',
-  cat_loading: 'Chargement des produits…', cat_fail: 'Produits de samar.mr indisponibles — seul le code s’affiche', cat_upd: 'Mettre à jour les produits', cat_ok: 'Produits mis à jour', sync: 'Enregistrement…', packed: 'Fait', empty: 'Aucune commande. Collez un message WhatsApp pour commencer.', bc_saved: 'Bon de commande gardé dans Drive' }
+  imp: 'Importer depuis l’ancienne page tajhiz', imp_s: 'Sur l’ancienne page touchez « Excel الكل » puis choisissez le fichier ici', imp_ok: 'Importées', imp_skip: 'déjà présentes', imp_bad: 'Ce n’est pas le fichier des ventes de la page tajhiz', cat_loading: 'Chargement des produits…', cat_fail: 'Produits de samar.mr indisponibles — seul le code s’affiche', cat_upd: 'Mettre à jour les produits', cat_ok: 'Produits mis à jour', sync: 'Enregistrement…', packed: 'Fait', empty: 'Aucune commande. Collez un message WhatsApp pour commencer.', bc_saved: 'Bon de commande gardé dans Drive' }
 };
 const tp = k => (PL[S.lang] && PL[S.lang][k]) || PL.ar[k] || k;
 L.ar.prep = 'التجهيز'; L.fr.prep = 'Préparation';
@@ -247,7 +247,41 @@ function salesHtml() {
    <div class="xbt"><button class="btn y sm" data-xls="month">${ic('download', 18)}${tp('xls_month')}</button><button class="btn c sm" data-xls="all">${ic('download', 18)}${tp('xls_all')}</button></div>
    <div class="seg"><button class="${PR.sm === 'month' ? 'on' : ''}" data-xsm="month">${tp('this_month')}</button><button class="${PR.sm === 'all' ? 'on' : ''}" data-xsm="all">${tp('all')}</button></div>
    ${shown.length ? shown.slice().reverse().slice(0, 60).map(x => `<div class="row" style="border-bottom:1px solid #EFEBE4;padding-bottom:10px"><div class="grow"><div style="font-weight:600">${esc(x.name || x.no)}</div><div class="muted"><bdi dir="ltr">${esc(stamp(new Date(x.at).getTime()))} · ${esc(x.no)}</bdi> · ${x.pieces} ${tp('pieces')}${x.pay ? ' · ' + esc((PAYS.find(p => p[0] === x.pay) || [, () => x.pay])[1]()) : ''}${x.file ? ` · <a href="${esc(x.file)}" target="_blank" rel="noopener">PNG</a>` : ''}</div></div><b class="d" dir="ltr">${Math.round(+x.total).toLocaleString('en-US')} MRU</b><button class="xoff" data-xsdel="${esc(x.id)}" aria-label="✕">${ic('x', 16)}</button></div>`).join('') : `<div class="empty">${tp('no_sales')}</div>`}
+   <label class="btn c sm" style="cursor:pointer">${ic('download', 18)}${tp('imp')}<input type="file" accept=".csv,.tsv,.txt,text/csv,text/plain" data-ximp hidden></label><div class="muted" style="text-align:center;margin-top:-6px">${tp('imp_s')}</div>
    <div class="muted">${tp('sales_note')}</div></div>`;
+}
+/* import the sales log of the old tajhiz page (its «Excel» file: UTF-16 tab-separated; also accepts a CSV re-saved by Excel / Sheets) */
+function splitRows(text) {
+  const first = text.split(/\r?\n/)[0], dl = first.indexOf('\t') > -1 ? '\t' : (first.split(';').length > first.split(',').length ? ';' : ',');
+  const rows = []; let row = [], cell = '', q = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (q) { if (ch === '"') { if (text[i + 1] === '"') { cell += '"'; i++; } else q = false; } else cell += ch; continue; }
+    if (ch === '"' && cell === '') q = true;
+    else if (ch === dl) { row.push(cell); cell = ''; }
+    else if (ch === '\n' || ch === '\r') { if (ch === '\r' && text[i + 1] === '\n') i++; row.push(cell); if (row.some(c => c.trim())) rows.push(row); row = []; cell = ''; }
+    else cell += ch;
+  }
+  row.push(cell); if (row.some(c => c.trim())) rows.push(row);
+  return rows;
+}
+async function importSales(file) {
+  const u8 = new Uint8Array(await file.arrayBuffer());
+  let text = u8[0] === 0xFF && u8[1] === 0xFE ? new TextDecoder('utf-16le').decode(u8.subarray(2)) : u8[0] === 0xFE && u8[1] === 0xFF ? new TextDecoder('utf-16be').decode(u8.subarray(2)) : new TextDecoder('utf-8').decode(u8);
+  text = text.replace(/^\ufeff/, '');
+  const rows = splitRows(text), head = (rows.shift() || []).map(h => h.trim().toLowerCase()), col = n => head.indexOf(n);
+  if (col('receipt no.') < 0 || col('total') < 0) { toast(tp('imp_bad')); return; }
+  const cat = CAT(), num = v => parseFloat(String(v || '').replace(/[^\d.-]/g, '')) || 0;
+  const toIso = d => { const m = String(d || '').match(/(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\D+(\d{1,2}):(\d{2}))?/); return m ? new Date(+m[3], +m[2] - 1, +m[1], +(m[4] || 12), +(m[5] || 0)).toISOString() : new Date().toISOString(); };
+  const sales = rows.map(r => {
+    const g = n => (col(n) > -1 ? String(r[col(n)] || '').trim() : '');
+    const names = g('products') ? g('products').split(' | ') : [], codes = g('codes').split(', ');
+    const items = names.map((t, i) => { const m = t.match(/^(.*) ×(\d+)$/), c = (codes[i] || '').trim(), gift = /\(هدية\)/.test(t); return { c, t: m ? m[1] : t, b: (cat[c] || {}).b || '', q: m ? +m[2] : 1, p: gift || !cat[c] ? 0 : cat[c].p / 100 }; });
+    return { no: g('receipt no.'), at: toIso(g('date')), when: g('order date'), name: g('customer'), phone: g('phone'), city: g('city'), address: g('address'), note: g('note'), items, pieces: num(g('pieces')), sub: num(g('products price')), disc: num(g('discount')), fee: num(g('delivery')), total: num(g('total')) };
+  }).filter(x => x.no || x.total);
+  if (!sales.length) { toast(tp('imp_bad')); return; }
+  try { const r = await api('sales.import', { sales }); toast('✓ ' + tp('imp_ok') + ' ' + r.added + (r.skipped ? ' · ' + r.skipped + ' ' + tp('imp_skip') : '')); loadSales(); }
+  catch (e) { fail(e); }
 }
 async function loadSales() { if (!isMgr()) return; try { PR.sales = await api('sales.list', {}); const el = document.getElementById('x-sales'); if (el) el.innerHTML = salesHtml(); } catch (e) {} }
 
@@ -417,6 +451,7 @@ document.addEventListener('input', e => {
   if (t.matches('[data-xfeei]')) { upd(ord, { fee: parseInt(t.value, 10) || 0 }, false); drawTotals(box, ord); }
   if (t.matches('[data-xdi]')) { const m = box.querySelector('[data-xdm].on'); upd(ord, { disc: { m: m ? m.dataset.xdm : 'p', v: parseFloat(t.value) || 0 } }, false); drawTotals(box, ord); }
 });
+document.addEventListener('change', e => { if (isPrep() && e.target.matches('[data-ximp]') && e.target.files[0]) { importSales(e.target.files[0]); e.target.value = ''; } });
 document.addEventListener('paste', e => { if (e.target && e.target.id === 'x-in') setTimeout(() => addText(e.target.value), 0); });
 
 /* ---------- route ---------- */
@@ -507,7 +542,8 @@ if (typeof DEMO !== 'undefined' && DEMO) {
     'sales.list'() { return dSales.slice(); },
     'sales.delete'({ id }) { dSales = dSales.filter(x => x.id !== id); const o = dOrders.find(x => x.id === id); if (o && o.status === 'sold') o.status = 'open'; return true; },
     'bc.next'() { const d = new Date(); return { no: 'BC-' + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0') + '-' + String(++bn).padStart(2, '0') }; },
-    'bc.archive'() { return { file: '' }; }
+    'bc.archive'() { return { file: '' }; },
+    'sales.import'({ sales }) { let added = 0, skipped = 0; sales.forEach(x => { if (dSales.some(s => s.no === x.no)) { skipped++; return; } dSales.push({ ...x, id: 'imp-' + x.no + '-' + x.at, pay: '', soldBy: 'u1', file: '' }); added++; }); return { added, skipped }; }
   });
 }
 })();
