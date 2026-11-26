@@ -1,0 +1,271 @@
+# samarHive Android APK — built by GitHub in the cloud.
+# Run it from: Actions › "Build samarHive APK" › Run workflow.
+# Needs one secret: Settings › Secrets and variables › Actions › New repository secret
+#   Name: APK_PASSWORD   Value: a password of at least 8 characters (keep it; the same one is needed for every build)
+name: Build samarHive APK
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  APP_URL: https://salemeose.github.io/samarhive/
+  APP_HOST: salemeose.github.io
+  APP_PATH: /samarhive
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+
+      - name: Signing key (made once, then kept encrypted in the repository)
+        env:
+          PW: ${{ secrets.APK_PASSWORD }}
+        run: |
+          if [ ${#PW} -lt 8 ]; then echo "::error::Add the secret APK_PASSWORD (at least 8 characters) in Settings › Secrets and variables › Actions"; exit 1; fi
+          if [ -f android-key.enc ]; then
+            openssl enc -d -aes-256-cbc -pbkdf2 -in android-key.enc -out "$RUNNER_TEMP/key.jks" -pass env:PW || { echo "::error::APK_PASSWORD is not the one used the first time"; exit 1; }
+          else
+            keytool -genkeypair -keystore "$RUNNER_TEMP/key.jks" -alias samarhive -keyalg RSA -keysize 2048 -validity 10000 \
+              -storepass "$PW" -keypass "$PW" -dname "CN=samarHive, O=SAMAR, C=MR"
+            openssl enc -aes-256-cbc -pbkdf2 -salt -in "$RUNNER_TEMP/key.jks" -out android-key.enc -pass env:PW
+            git config user.name "samarHive build"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add android-key.enc
+            git commit -m "Save encrypted APK signing key"
+            git push
+          fi
+
+      - name: Write the Android project
+        run: |
+          mkdir -p android/app/src/main/java/mr/samar/hive android/app/src/main/res/mipmap-xxxhdpi android/app/src/main/res/values
+          cd android
+          cat > settings.gradle <<'EOF'
+          pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
+          dependencyResolutionManagement { repositories { google(); mavenCentral() } }
+          rootProject.name = "samarHive"
+          include ':app'
+          EOF
+          cat > build.gradle <<'EOF'
+          plugins { id 'com.android.application' version '8.5.2' apply false }
+          EOF
+          cat > gradle.properties <<'EOF'
+          org.gradle.jvmargs=-Xmx2g
+          android.useAndroidX=false
+          EOF
+          cat > app/build.gradle <<'EOF'
+          plugins { id 'com.android.application' }
+          android {
+              namespace 'mr.samar.hive'
+              compileSdk 34
+              defaultConfig {
+                  applicationId 'mr.samar.hive'
+                  minSdk 24
+                  targetSdk 34
+                  versionCode Integer.parseInt(System.getenv('VCODE') ?: '1')
+                  versionName '1.' + (System.getenv('VCODE') ?: '1')
+                  buildConfigField 'String', 'APP_URL', '"' + System.getenv('APP_URL') + '"'
+                  buildConfigField 'String', 'APP_HOST', '"' + System.getenv('APP_HOST') + '"'
+                  buildConfigField 'String', 'APP_PATH', '"' + System.getenv('APP_PATH') + '"'
+              }
+              buildFeatures { buildConfig true }
+              signingConfigs {
+                  release {
+                      storeFile file(System.getenv('KEYSTORE'))
+                      storePassword System.getenv('PW')
+                      keyAlias 'samarhive'
+                      keyPassword System.getenv('PW')
+                  }
+              }
+              buildTypes { release { minifyEnabled false; signingConfig signingConfigs.release } }
+          }
+          EOF
+          cat > app/src/main/AndroidManifest.xml <<'EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+              <uses-permission android:name="android.permission.INTERNET" />
+              <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+              <application
+                  android:label="samarHive"
+                  android:icon="@mipmap/ic_launcher"
+                  android:roundIcon="@mipmap/ic_launcher"
+                  android:theme="@style/Hive"
+                  android:supportsRtl="true"
+                  android:usesCleartextTraffic="false">
+                  <activity
+                      android:name=".MainActivity"
+                      android:exported="true"
+                      android:launchMode="singleTask"
+                      android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|uiMode|density"
+                      android:windowSoftInputMode="adjustResize">
+                      <intent-filter>
+                          <action android:name="android.intent.action.MAIN" />
+                          <category android:name="android.intent.category.LAUNCHER" />
+                      </intent-filter>
+                  </activity>
+              </application>
+              <queries>
+                  <intent><action android:name="android.intent.action.VIEW" /><data android:scheme="https" /></intent>
+                  <package android:name="com.whatsapp" />
+                  <package android:name="com.whatsapp.w4b" />
+              </queries>
+          </manifest>
+          EOF
+          cat > app/src/main/res/values/styles.xml <<'EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <resources>
+              <style name="Hive" parent="@android:style/Theme.Material.Light.NoActionBar">
+                  <item name="android:statusBarColor">#1F2937</item>
+                  <item name="android:navigationBarColor">#F6F3ED</item>
+                  <item name="android:windowBackground">@android:color/white</item>
+                  <item name="android:colorAccent">#FFC800</item>
+              </style>
+          </resources>
+          EOF
+          cp ../icon-192.png app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+          mkdir -p app/src/main/res/drawable-nodpi app/src/main/res/mipmap-anydpi-v26
+          cp ../icon-maskable-512.png app/src/main/res/drawable-nodpi/hive_fg.png
+          cat > app/src/main/res/values/colors.xml <<'EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <resources><color name="hive_bg">#1F2937</color></resources>
+          EOF
+          cat > app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml <<'EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+              <background android:drawable="@color/hive_bg" />
+              <foreground><inset android:drawable="@drawable/hive_fg" android:inset="16%" /></foreground>
+          </adaptive-icon>
+          EOF
+          cat > app/src/main/java/mr/samar/hive/MainActivity.java <<'EOF'
+          package mr.samar.hive;
+
+          import android.app.Activity;
+          import android.content.ActivityNotFoundException;
+          import android.content.Intent;
+          import android.graphics.Bitmap;
+          import android.graphics.Color;
+          import android.net.Uri;
+          import android.os.Bundle;
+          import android.view.View;
+          import android.webkit.CookieManager;
+          import android.webkit.ValueCallback;
+          import android.webkit.WebChromeClient;
+          import android.webkit.WebResourceError;
+          import android.webkit.WebResourceRequest;
+          import android.webkit.WebSettings;
+          import android.webkit.WebView;
+          import android.webkit.WebViewClient;
+
+          public class MainActivity extends Activity {
+              private WebView web;
+              private ValueCallback<Uri[]> fileCb;
+              private static final int PICK = 7;
+              private static final String OFFLINE = "<html><body style='margin:0;font-family:sans-serif;background:#F6F3ED;color:#1F2937;display:flex;align-items:center;justify-content:center;height:100vh;text-align:center'><div><h2>لا يوجد اتصال</h2><p>Pas de connexion</p><button onclick='location.href=\"" + BuildConfig.APP_URL + "\"' style='height:52px;padding:0 28px;border:0;border-radius:26px;background:#FFC800;font-size:17px'>إعادة المحاولة · Réessayer</button></div></body></html>";
+
+              @Override
+              protected void onCreate(Bundle state) {
+                  super.onCreate(state);
+                  web = new WebView(this);
+                  web.setBackgroundColor(Color.parseColor("#F6F3ED"));
+                  setContentView(web);
+                  WebSettings s = web.getSettings();
+                  s.setJavaScriptEnabled(true);
+                  s.setDomStorageEnabled(true);
+                  s.setDatabaseEnabled(true);
+                  s.setSupportZoom(false);
+                  s.setMediaPlaybackRequiresUserGesture(true);
+                  s.setSupportMultipleWindows(false);
+                  s.setUserAgentString(s.getUserAgentString() + " samarHiveApp/" + BuildConfig.VERSION_NAME);
+                  CookieManager.getInstance().setAcceptCookie(true);
+                  web.setOverScrollMode(View.OVER_SCROLL_NEVER);
+                  web.setWebViewClient(new WebViewClient() {
+                      @Override
+                      public boolean shouldOverrideUrlLoading(WebView v, WebResourceRequest r) {
+                          return route(r.getUrl());
+                      }
+                      @Override
+                      public void onReceivedError(WebView v, WebResourceRequest r, WebResourceError e) {
+                          if (r.isForMainFrame()) v.loadDataWithBaseURL(null, OFFLINE, "text/html", "utf-8", null);
+                      }
+                  });
+                  web.setWebChromeClient(new WebChromeClient() {
+                      @Override
+                      public boolean onShowFileChooser(WebView v, ValueCallback<Uri[]> cb, FileChooserParams p) {
+                          if (fileCb != null) fileCb.onReceiveValue(null);
+                          fileCb = cb;
+                          try { startActivityForResult(p.createIntent(), PICK); }
+                          catch (ActivityNotFoundException e) { fileCb = null; return false; }
+                          return true;
+                      }
+                  });
+                  if (state != null) web.restoreState(state);
+                  else web.loadUrl(BuildConfig.APP_URL);
+              }
+
+              private boolean route(Uri u) {
+                  String scheme = u.getScheme() == null ? "" : u.getScheme();
+                  boolean inside = ("https".equals(scheme) || "http".equals(scheme))
+                      && BuildConfig.APP_HOST.equals(u.getHost())
+                      && u.getPath() != null && u.getPath().startsWith(BuildConfig.APP_PATH);
+                  if (inside) return false;
+                  try { startActivity(new Intent(Intent.ACTION_VIEW, u)); } catch (ActivityNotFoundException e) { }
+                  return true;
+              }
+
+              @Override
+              protected void onActivityResult(int req, int res, Intent data) {
+                  if (req == PICK && fileCb != null) {
+                      fileCb.onReceiveValue(WebChromeClient.FileChooserParams.parseResult(res, data));
+                      fileCb = null;
+                  } else super.onActivityResult(req, res, data);
+              }
+
+              @Override
+              protected void onSaveInstanceState(Bundle out) { super.onSaveInstanceState(out); web.saveState(out); }
+
+              @Override
+              public void onBackPressed() {
+                  if (web.canGoBack()) web.goBack(); else super.onBackPressed();
+              }
+
+              @Override
+              protected void onResume() { super.onResume(); web.onResume(); }
+
+              @Override
+              protected void onPause() { web.onPause(); CookieManager.getInstance().flush(); super.onPause(); }
+          }
+          EOF
+
+      - name: Build
+        env:
+          PW: ${{ secrets.APK_PASSWORD }}
+          VCODE: ${{ github.run_number }}
+        run: |
+          export KEYSTORE="$RUNNER_TEMP/key.jks"
+          cd android
+          gradle --no-daemon assembleRelease
+          cp app/build/outputs/apk/release/app-release.apk "$GITHUB_WORKSPACE/samarhive.apk"
+
+      - name: Publish the APK (fixed download link)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: apk
+          name: samarHive APK
+          body: |
+            samarHive for Android (build ${{ github.run_number }}).
+            Download link to share: https://github.com/${{ github.repository }}/releases/latest/download/samarhive.apk
+          files: samarhive.apk
+          make_latest: true
+          overwrite_files: true
