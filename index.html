@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1F2937">
+<title>samarHive</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;600&family=Readex+Pro:wght@400;500;600&display=swap">
+<script src="config.js"></script>
+<style>
+:root{--navy:#1F2937;--yel:#FFC800;--gold:#B98500;--goldt:#8A6400;--bg:#F6F3ED;--line:#ECE5D8;--grey:#4B5563;--red:#B42318;--redbg:#FEF3F2;--green:#166534;--greenbg:#ECFDF3;--amberbg:#FFF4CC;--d:'Alexandria','Readex Pro',system-ui,sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--navy);font-family:'Readex Pro',system-ui,sans-serif;line-height:1.5}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:inherit}
+#app{max-width:520px;margin:0 auto;min-height:100dvh;display:flex;flex-direction:column}
+.top{position:sticky;top:0;z-index:5;background:var(--bg);padding:calc(14px + env(safe-area-inset-top)) 18px 10px;display:flex;align-items:center;gap:10px}
+.top h1{margin:0;font:600 23px/1.3 var(--d);flex:1;min-width:0}
+.top .sub{font-size:13px;color:var(--grey);font-family:'Readex Pro',sans-serif;font-weight:400}
+.main{flex:1;padding:4px 16px 120px;display:flex;flex-direction:column;gap:12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:14px;box-shadow:0 10px 28px rgba(31,41,55,.05)}
+.hero{background:var(--navy);color:#fff;border-radius:26px;padding:18px 20px;position:relative;overflow:hidden}
+.hero svg.deco{position:absolute;inset-inline-start:-40px;top:-50px;opacity:.14;pointer-events:none}
+.hero .lbl{font-size:13px;color:#CBD2DC}
+.big{font:500 38px/1.1 var(--d)}
+.d{font-family:var(--d)}
+.row{display:flex;align-items:center;gap:10px}
+.between{justify-content:space-between}
+.grow{flex:1;min-width:0}
+.muted{color:var(--grey);font-size:13px}
+.h2{font:600 16px/1.4 var(--d);margin:6px 2px 0}
+.ib{flex:none;width:44px;height:44px;border-radius:22px;border:1px solid #E6DECF;background:#fff;display:flex;align-items:center;justify-content:center;position:relative}
+.ib .badge{position:absolute;top:4px;inset-inline-end:4px;min-width:17px;height:17px;border-radius:9px;background:var(--red);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.btn{min-height:48px;padding:0 16px;border-radius:24px;border:1.5px solid var(--navy);background:var(--navy);color:#fff;font-weight:600;font-family:var(--d);display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:15px;white-space:nowrap;text-decoration:none}
+.btn.y{background:var(--yel);border-color:var(--yel);color:var(--navy)}
+.btn.o{background:#fff;color:var(--navy)}
+.btn.c{background:#F1EADC;border-color:#F1EADC;color:var(--navy)}
+.btn.sm{min-height:40px;font-size:14px;padding:0 14px}
+.btn.big{min-height:56px;border-radius:28px;width:100%}
+.btn.red{background:#fff;border-color:var(--red);color:var(--red)}
+.btn:disabled{opacity:.5}
+.pills{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.pills::-webkit-scrollbar{display:none}
+.pill{flex:none;height:40px;padding:0 15px;border-radius:20px;border:1px solid #E2D9C8;background:transparent;font-weight:500;font-size:14px}
+.pill.on{background:var(--navy);border-color:var(--navy);color:var(--yel);font-weight:600}
+.pill .n{opacity:.7;margin-inline-start:4px}
+.seg{display:flex;gap:4px;padding:4px;background:#EDE6D9;border-radius:16px}
+.seg button{flex:1;height:40px;border-radius:12px;border:0;background:transparent;color:var(--grey);font-weight:600}
+.seg button.on{background:#fff;color:var(--navy);box-shadow:0 1px 2px rgba(31,41,55,.12)}
+.chip{flex:none;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.st-late{color:var(--red);background:var(--redbg)}.st-prog{color:var(--goldt);background:var(--amberbg)}.st-new{color:var(--navy);background:#E5E7EB}.st-done{color:var(--green);background:var(--greenbg)}
+.av{flex:none;width:30px;height:30px;border-radius:15px;background:var(--amberbg);color:var(--goldt);display:flex;align-items:center;justify-content:center;font:600 13px var(--d)}
+.task{display:flex;flex-direction:column;gap:8px}
+.task .t{font-size:16px;font-weight:600;line-height:1.45}
+.task.done .t{text-decoration:line-through;color:#6B7280}
+.check{flex:none;width:44px;height:44px;border-radius:22px;border:2px solid #D8CFBE;background:#fff;display:flex;align-items:center;justify-content:center}
+.check.on{background:var(--green);border-color:var(--green)}
+.meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:13px;color:var(--grey)}
+.fab{position:fixed;bottom:calc(98px + env(safe-area-inset-bottom));inset-inline-start:max(16px,calc(50% - 244px));height:56px;padding:0 20px;border-radius:28px;background:var(--yel);color:var(--navy);border:0;display:flex;align-items:center;gap:8px;font:600 15px var(--d);box-shadow:0 8px 20px rgba(31,41,55,.25);z-index:6}
+nav.bar{position:fixed;bottom:calc(12px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:min(492px,calc(100% - 24px));height:68px;background:var(--navy);border-radius:26px;display:flex;padding:4px;box-shadow:0 12px 30px rgba(31,41,55,.28);z-index:7}
+nav.bar a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:#AEB4BE;text-decoration:none;font-size:11.5px}
+nav.bar a.on{color:var(--yel);font-weight:600}
+nav.bar a.on::after{content:"";width:4px;height:4px;border-radius:2px;background:var(--yel)}
+label.f{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+.inp{height:52px;border-radius:14px;border:1.5px solid #E2D9C8;background:#fff;padding:0 14px;font-size:16px;width:100%}
+.inp:focus{outline:none;border-color:var(--navy)}
+.err{color:var(--red);font-size:13px;min-height:20px}
+.code6{display:flex;gap:8px;justify-content:space-between;direction:ltr}
+.code6 input{width:100%;height:56px;text-align:center;font:600 22px var(--d);border-radius:14px;border:1.5px solid #E2D9C8;background:#fff;padding:0}
+.code6 input:focus{outline:none;border-color:var(--navy)}
+.people{display:flex;gap:12px;overflow-x:auto;scrollbar-width:none;padding:2px}
+.people button{flex:none;border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;padding:0;min-width:56px}
+.people .av{width:50px;height:50px;border-radius:25px;font-size:17px;border:2px solid #E5E7EB;background:#fff;color:var(--navy)}
+.people button.on .av{background:var(--yel);border-color:var(--navy)}
+.switch{flex:none;width:52px;height:32px;border-radius:16px;background:#D1D5DB;border:0;position:relative;padding:0}
+.switch::after{content:"";position:absolute;top:3px;inset-inline-start:3px;width:26px;height:26px;border-radius:13px;background:#fff;transition:inset-inline-start .15s}
+.switch.on{background:var(--green)}.switch.on::after{inset-inline-start:23px}
+.bar8{height:8px;border-radius:4px;background:#F1EADC;overflow:hidden}.bar8 i{display:block;height:100%;background:var(--gold);border-radius:4px}
+.empty{text-align:center;color:var(--grey);padding:30px 10px;font-size:14px}
+.toast{position:fixed;bottom:calc(168px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:12px 18px;border-radius:16px;font-size:14px;z-index:30;max-width:90%;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.sheet-bg{position:fixed;inset:0;background:rgba(17,24,39,.45);z-index:20;display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:var(--bg);width:100%;max-width:520px;border-radius:26px 26px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:12px}
+.login-top{background:var(--navy);border-radius:0 0 40px 40px;padding:calc(40px + env(safe-area-inset-top)) 20px 36px;display:flex;flex-direction:column;align-items:center;gap:12px;color:#fff;position:relative;overflow:hidden}
+.flip{transform:scaleX(1)}[dir=rtl] .flip{transform:scaleX(-1)}
+.demo{background:var(--amberbg);color:var(--goldt);font-size:12px;text-align:center;padding:6px;font-weight:600}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+'use strict';
+const CFG = window.SAMARHIVE_CONFIG || {};
+const DEMO = !CFG.API_URL;
+
+/* ---------- icons ---------- */
+const P = {
+ home:'M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z',
+ tasks:'M9 11l3 3 8-8 M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9',
+ users:'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M22 21v-2a4 4 0 0 0-3-3.9 M16 3.1a4 4 0 0 1 0 7.8',
+ bell:'M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9 M13.7 21a2 2 0 0 1-3.4 0',
+ plus:'M12 5v14 M5 12h14', check:'M5 12l5 5L20 7', back:'M15 6l-6 6 6 6',
+ clock:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z M12 7v5l3 2',
+ msg:'M21 12a9 9 0 0 1-13.5 7.8L3 21l1.2-4.5A9 9 0 1 1 21 12z',
+ key:'M15 3a6 6 0 1 1-5.6 8.2L3 17.5V21h3.5v-2.5H9V16h2l1.4-1.4A6 6 0 0 1 15 3z',
+ off:'M18.4 5.6A9 9 0 1 1 5.6 18.4 9 9 0 0 1 18.4 5.6z M5.6 5.6l12.8 12.8',
+ trash:'M4 7h16 M10 11v6 M14 11v6 M6 7l1 13h10l1-13 M9 7V4h6v3',
+ globe:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z M3 12h18 M12 3a14 14 0 0 1 0 18 M12 3a14 14 0 0 0 0 18',
+ out:'M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4 M10 17l-5-5 5-5 M5 12h11',
+ repeat:'M17 2l4 4-4 4 M3 11V9a3 3 0 0 1 3-3h15 M7 22l-4-4 4-4 M21 13v2a3 3 0 0 1-3 3H3',
+ shield:'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z'
+};
+const ic = (n, s = 22, c = 'currentColor', sw = 1.8, cls = '') => `<svg class="${cls}" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${P[n]}"/></svg>`;
+const LOGO = s => `<svg width="${s}" height="${s}" viewBox="0 0 240 240" aria-hidden="true"><rect width="240" height="240" rx="53" fill="#1F2937"/><polygon points="120,42 187.5,81 187.5,159 120,198 52.5,159 52.5,81" fill="#FFC800" stroke="#FFC800" stroke-width="14" stroke-linejoin="round"/><polyline points="146,89 120,74 94,89 94,104 146,136 146,151 120,166 94,151" fill="none" stroke="#1F2937" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const DECO = `<svg class="deco" width="170" height="170" viewBox="0 0 240 240" aria-hidden="true"><polygon points="120,20 207,70 207,170 120,220 33,170 33,70" fill="none" stroke="#FFC800" stroke-width="6"/><polygon points="120,60 172,90 172,150 120,180 68,150 68,90" fill="none" stroke="#FFC800" stroke-width="6"/></svg>`;
+
+/* ---------- text ---------- */
+const L = {
+ar:{login:'تسجيل الدخول',team_sub:'خلية سمر · فريق المتجر',user:'اسم المستخدم أو البريد',code:'الرمز الشخصي (6 أرقام)',enter:'دخول',forgot:'نسيت الرمز؟ اطلب من المدير إعادة تعيينه، يصلك على واتساب.',bad_login:'اسم المستخدم أو الرمز غير صحيح',locked:'محاولات كثيرة، حاول بعد 10 دقائق',
+home:'الرئيسية',tasks:'المهام',team:'الفريق',hello:'مرحبًا',morning:'صباح الخير',evening:'مساء الخير',today_tasks:'مهام اليوم',done_of:'منجزة من',late:'متأخرة',my_today:'مهامي اليوم',team_today:'الفريق اليوم',all_done:'لا مهام متبقية اليوم. عمل رائع.',soon:'قريبًا في التطبيق',soon_t:'التجهيز، المخزون، المحاسبة والأرشيف تأتي في المراحل التالية.',
+f_today:'اليوم',f_tomorrow:'غدًا',f_week:'هذا الأسبوع',f_done:'منجزة',f_all:'الكل',f_mine:'مهامي',none:'لا توجد مهام هنا',new_task:'مهمة جديدة',edit_task:'تعديل المهمة',task:'المهمة',task_ph:'مثال: تصوير المنتجات الجديدة',who:'المسؤول',when:'الموعد',time:'الساعة',pick:'تاريخ آخر',rep:'التكرار',once:'مرة واحدة',daily:'يوميًا',weekly:'أسبوعيًا',wa_send:'إرسال المهمة على واتساب',wa_send_s:'يفتح واتساب برسالة جاهزة للمسؤول',save:'حفظ',del:'حذف المهمة',del_q:'حذف هذه المهمة؟',remind:'تذكير',done:'تم',undo:'إلغاء',need_title:'اكتب المهمة',
+st_new:'جديدة',st_late:'متأخرة',st_done:'منجزة',st_prog:'قيد التنفيذ',start:'بدء',daily_r:'يتكرر يوميًا',weekly_r:'يتكرر أسبوعيًا',yesterday:'أمس',
+managers_only:'للمديرين فقط',add:'إضافة',add_person:'إضافة شخص',name:'الاسم',username:'اسم المستخدم',phone:'رقم واتساب',role:'الدور',manager:'مدير',employee:'موظف',last:'آخر دخول',never:'لم يدخل بعد',reset:'رمز جديد',disable:'تعطيل',enable:'تفعيل',disabled:'معطّل',make_mgr:'جعله مديرًا',make_emp:'جعله موظفًا',add_info:'ينشئ التطبيق رمزًا من 6 أرقام ويفتح واتساب برسالة فيها اسم المستخدم والرمز ورابط التطبيق.',send_wa:'إرسال على واتساب',new_code:'الرمز الجديد',code_for:'رمز',copy:'نسخ',copied:'تم النسخ',need_fields:'أكمل الاسم واسم المستخدم ورقم واتساب',phone_err:'رقم واتساب: 8 أرقام تبدأ بـ 2 أو 3 أو 4',reset_q:'إنشاء رمز جديد؟ الرمز القديم يتوقف فورًا.',dis_q:'تعطيل هذا الحساب؟ يبقى سجله محفوظًا.',
+settings:'الإعدادات',lang:'اللغة',logout:'تسجيل الخروج',install:'لإضافة التطبيق للشاشة الرئيسية: من قائمة المتصفح اختر «إضافة إلى الشاشة الرئيسية».',offline:'لا يوجد اتصال، حاول مرة أخرى',saved:'تم الحفظ',cancel:'إلغاء',ok:'تأكيد',demo:'وضع التجربة · البيانات لا تُحفظ · amina / 123456',
+wa_task:'مرحبًا {n}، مهمة جديدة في samarHive:\n«{t}»\nالموعد: {d}',wa_rem:'تذكير يا {n} 🔔\n«{t}»\nالموعد: {d}',wa_acc:'مرحبًا {n}، هذا حسابك في samarHive (خلية سمر):\nاسم المستخدم: {u}\nالرمز: {c}\nالرابط: {l}',
+days:['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],months:['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر']},
+fr:{login:'Connexion',team_sub:'La ruche SAMAR · équipe de la boutique',user:'Nom d’utilisateur ou e-mail',code:'Code personnel (6 chiffres)',enter:'Se connecter',forgot:'Code oublié ? Demandez au gérant de le réinitialiser, il arrive sur WhatsApp.',bad_login:'Identifiant ou code incorrect',locked:'Trop d’essais, réessayez dans 10 minutes',
+home:'Accueil',tasks:'Tâches',team:'Équipe',hello:'Bonjour',morning:'Bonjour',evening:'Bonsoir',today_tasks:'Tâches du jour',done_of:'faites sur',late:'en retard',my_today:'Mes tâches du jour',team_today:'L’équipe aujourd’hui',all_done:'Plus aucune tâche aujourd’hui. Bravo.',soon:'Bientôt dans l’app',soon_t:'Préparation, stock, compta et archives arrivent dans les prochaines étapes.',
+f_today:'Aujourd’hui',f_tomorrow:'Demain',f_week:'Cette semaine',f_done:'Faites',f_all:'Toutes',f_mine:'Les miennes',none:'Aucune tâche ici',new_task:'Nouvelle tâche',edit_task:'Modifier la tâche',task:'Tâche',task_ph:'Ex. : photos des nouveautés',who:'Responsable',when:'Échéance',time:'Heure',pick:'Autre date',rep:'Répétition',once:'Une fois',daily:'Chaque jour',weekly:'Chaque semaine',wa_send:'Envoyer la tâche sur WhatsApp',wa_send_s:'Ouvre WhatsApp avec un message prêt',save:'Enregistrer',del:'Supprimer la tâche',del_q:'Supprimer cette tâche ?',remind:'Rappel',done:'Fait',undo:'Annuler',need_title:'Écrivez la tâche',
+st_new:'Nouvelle',st_late:'En retard',st_done:'Faite',st_prog:'En cours',start:'Commencer',daily_r:'chaque jour',weekly_r:'chaque semaine',yesterday:'hier',
+managers_only:'Gérants seulement',add:'Ajouter',add_person:'Ajouter une personne',name:'Nom',username:'Nom d’utilisateur',phone:'Numéro WhatsApp',role:'Rôle',manager:'Gérant',employee:'Employé',last:'Vu',never:'Jamais connecté',reset:'Nouveau code',disable:'Désactiver',enable:'Activer',disabled:'Désactivé',make_mgr:'Passer gérant',make_emp:'Passer employé',add_info:'L’app crée un code à 6 chiffres et ouvre WhatsApp avec l’identifiant, le code et le lien.',send_wa:'Envoyer sur WhatsApp',new_code:'Nouveau code',code_for:'Code de',copy:'Copier',copied:'Copié',need_fields:'Complétez nom, identifiant et WhatsApp',phone_err:'WhatsApp : 8 chiffres commençant par 2, 3 ou 4',reset_q:'Créer un nouveau code ? L’ancien ne marche plus.',dis_q:'Désactiver ce compte ? L’historique est gardé.',
+settings:'Réglages',lang:'Langue',logout:'Se déconnecter',install:'Pour l’installer : menu du navigateur › « Ajouter à l’écran d’accueil ».',offline:'Pas de connexion, réessayez',saved:'Enregistré',cancel:'Annuler',ok:'Confirmer',demo:'Mode démo · rien n’est enregistré · amina / 123456',
+wa_task:'Bonjour {n}, nouvelle tâche sur samarHive :\n« {t} »\nÉchéance : {d}',wa_rem:'Rappel {n} 🔔\n« {t} »\nÉchéance : {d}',wa_acc:'Bonjour {n}, voici ton compte samarHive :\nIdentifiant : {u}\nCode : {c}\nLien : {l}',
+days:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],months:['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre']}
+};
+const store = {
+  get(k, d) { try { const v = localStorage.getItem('sh:' + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem('sh:' + k, JSON.stringify(v)); } catch (e) {} },
+  del(k) { try { localStorage.removeItem('sh:' + k); } catch (e) {} }
+};
+const S = { lang: store.get('lang', CFG.DEFAULT_LANG || 'ar'), token: store.get('token', null), user: store.get('user', null), tasks: store.get('tasks', []), team: store.get('team', []), f: 'today', scope: 'all', draft: null };
+const t = k => (L[S.lang][k] ?? k);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const fill = (s, o) => s.replace(/\{(\w)\}/g, (_, k) => o[k] ?? '');
+const $ = s => document.querySelector(s);
+
+/* ---------- dates ---------- */
+const pad = n => String(n).padStart(2, '0');
+const dayKey = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
+const parseDue = s => s ? new Date(s.length <= 10 ? s + 'T23:59' : s) : null;
+function fmtDue(s) {
+  if (!s) return '';
+  const d = parseDue(s), now = new Date(), k = dayKey(d), tm = s.length > 10 ? s.slice(11, 16) : '';
+  let day;
+  if (k === dayKey(now)) day = t('f_today');
+  else if (k === dayKey(addDays(now, 1))) day = t('f_tomorrow');
+  else if (k === dayKey(addDays(now, -1))) day = t('yesterday');
+  else day = `${d.getDate()} ${t('months')[d.getMonth()]}`;
+  return tm ? `${day} ${tm}` : day;
+}
+function status(x) {
+  if (x.status === 'done') return 'done';
+  const d = parseDue(x.due);
+  if (d && d < new Date()) return 'late';
+  return x.status === 'prog' ? 'prog' : 'new';
+}
+
+/* ---------- demo backend ---------- */
+const Demo = (() => {
+  const now = new Date(), T0 = dayKey(now), T1 = dayKey(addDays(now, 1)), Y = dayKey(addDays(now, -1));
+  const db = {
+    users: [
+      { id: 'u1', name: 'أمينة', username: 'amina', phone: '36000001', role: 'manager', active: true, code: '123456', lastLogin: new Date().toISOString() },
+      { id: 'u2', name: 'فاطمة', username: 'fatima', phone: '36000002', role: 'employee', active: true, code: '111111', lastLogin: addDays(now, 0).toISOString() },
+      { id: 'u3', name: 'محمد', username: 'mohamed', phone: '36000003', role: 'employee', active: true, code: '222222', lastLogin: addDays(now, -1).toISOString() },
+      { id: 'u4', name: 'خديجة', username: 'khadija', phone: '36000004', role: 'employee', active: false, code: '333333', lastLogin: '' }
+    ],
+    tasks: [
+      { id: 't1', title: 'تصوير المنتجات الجديدة للموقع', assigneeId: 'u2', due: Y + 'T18:00', repeat: 'once', status: 'new', createdBy: 'u1' },
+      { id: 't2', title: 'تجهيز طلبات نواذيبو للشحن', assigneeId: 'u3', due: T0 + 'T12:00', repeat: 'once', status: 'prog', createdBy: 'u1' },
+      { id: 't3', title: 'الرد على رسائل واتساب الصباحية', assigneeId: 'u1', due: T0 + 'T23:00', repeat: 'daily', status: 'new', createdBy: 'u1' },
+      { id: 't4', title: 'عدّ رف العناية بالشعر', assigneeId: 'u1', due: T0 + 'T09:00', repeat: 'once', status: 'done', createdBy: 'u1', doneAt: new Date().toISOString() },
+      { id: 't5', title: 'نشر فيديو تيك توك', assigneeId: 'u2', due: T1 + 'T17:00', repeat: 'weekly', status: 'new', createdBy: 'u1' }
+    ]
+  };
+  let me = null;
+  const pub = u => ({ id: u.id, name: u.name, username: u.username, phone: u.phone, role: u.role, active: u.active, lastLogin: u.lastLogin });
+  const need = () => { if (!me) throw new Error('auth'); };
+  const mgr = () => { need(); if (me.role !== 'manager') throw new Error('forbidden'); };
+  const code6 = () => String(Math.floor(100000 + Math.random() * 900000));
+  const nextDue = (due, rep) => { const d = parseDue(due); const n = addDays(d, rep === 'weekly' ? 7 : 1); return dayKey(n) + (due.length > 10 ? due.slice(10) : ''); };
+  return {
+    login({ username, code }) {
+      const u = db.users.find(x => (x.username === String(username).trim().toLowerCase()) && x.active);
+      if (!u || u.code !== code) throw new Error('bad_login');
+      me = u; u.lastLogin = new Date().toISOString();
+      return { token: 'demo-' + u.id, user: pub(u) };
+    },
+    resume(token) { me = db.users.find(x => 'demo-' + x.id === token) || null; },
+    bootstrap() { need(); return { user: pub(me), team: db.users.map(pub), tasks: this['tasks.list']() }; },
+    'tasks.list'() { need(); return db.tasks.filter(x => me.role === 'manager' || x.assigneeId === me.id || x.createdBy === me.id).map(x => ({ ...x })); },
+    'tasks.save'({ task }) {
+      need();
+      if (task.id) { const x = db.tasks.find(y => y.id === task.id); Object.assign(x, task); return { ...x }; }
+      const x = { ...task, id: 't' + Date.now(), status: 'new', createdBy: me.id }; db.tasks.push(x); return { ...x };
+    },
+    'tasks.setStatus'({ id, status }) {
+      need(); const x = db.tasks.find(y => y.id === id); x.status = status; x.doneAt = status === 'done' ? new Date().toISOString() : ''; x.doneBy = me.id;
+      let next = null;
+      if (status === 'done' && x.repeat !== 'once' && !x.nextId) { next = { ...x, id: 't' + Date.now(), status: 'new', due: nextDue(x.due, x.repeat), doneAt: '', nextId: '' }; x.nextId = next.id; db.tasks.push(next); }
+      return { task: { ...x }, next };
+    },
+    'tasks.delete'({ id }) { need(); db.tasks = db.tasks.filter(y => y.id !== id); return true; },
+    'team.add'({ name, username, phone, role }) {
+      mgr(); if (db.users.some(u => u.username === username)) throw new Error('username_taken');
+      const u = { id: 'u' + Date.now(), name, username, phone, role, active: true, code: code6(), lastLogin: '' }; db.users.push(u); return { user: pub(u), code: u.code };
+    },
+    'team.update'({ id, role, active }) { mgr(); const u = db.users.find(x => x.id === id); if (role) u.role = role; if (active !== undefined) u.active = active; return pub(u); },
+    'team.resetCode'({ id }) { mgr(); const u = db.users.find(x => x.id === id); u.code = code6(); return { code: u.code }; }
+  };
+})();
+
+/* ---------- api ---------- */
+async function api(action, data = {}) {
+  if (DEMO) {
+    await new Promise(r => setTimeout(r, 120));
+    Demo.resume(S.token);
+    return Demo[action](data);
+  }
+  const res = await fetch(CFG.API_URL, { method: 'POST', body: JSON.stringify({ action, token: S.token, lang: S.lang, ...data }) });
+  const j = await res.json();
+  if (!j.ok) { if (j.error === 'auth') logout(true); throw new Error(j.error); }
+  return j.data;
+}
+const ERR = { bad_login: 'bad_login', locked: 'locked', username_taken: 'username_taken' };
+function fail(e) {
+  const m = e && e.message;
+  toast(m === 'Failed to fetch' ? t('offline') : (L[S.lang][m] || (S.lang === 'ar' ? 'حدث خطأ: ' : 'Erreur : ') + m));
+}
+
+/* ---------- ui helpers ---------- */
+let toastT;
+function toast(msg) {
+  let el = $('.toast'); if (!el) { el = document.createElement('div'); el.className = 'toast'; el.setAttribute('role', 'status'); document.body.appendChild(el); }
+  el.textContent = msg; clearTimeout(toastT); toastT = setTimeout(() => el.remove(), 2600);
+}
+function ask(q, okLabel) {
+  return new Promise(res => {
+    const bg = document.createElement('div'); bg.className = 'sheet-bg';
+    bg.innerHTML = `<div class="sheet" role="dialog" aria-modal="true"><div class="d" style="font-size:17px;font-weight:600">${esc(q)}</div><div class="row"><button class="btn c grow" data-a="no">${t('cancel')}</button><button class="btn grow" data-a="yes">${esc(okLabel || t('ok'))}</button></div></div>`;
+    bg.onclick = e => { const a = e.target.closest('[data-a]'); if (e.target === bg || a) { bg.remove(); res(a && a.dataset.a === 'yes'); } };
+    document.body.appendChild(bg);
+  });
+}
+function sheet(html) {
+  const bg = document.createElement('div'); bg.className = 'sheet-bg';
+  bg.innerHTML = `<div class="sheet" role="dialog" aria-modal="true">${html}</div>`;
+  bg.addEventListener('click', e => { if (e.target === bg || e.target.closest('[data-close]')) bg.remove(); });
+  document.body.appendChild(bg); return bg;
+}
+const wa = (phone, text) => { const p = String(phone || '').replace(/\D/g, ''); const full = p.length === 8 ? '222' + p : p; window.open(`https://wa.me/${full}?text=${encodeURIComponent(text)}`, '_blank'); };
+const userById = id => S.team.find(u => u.id === id) || (S.user && S.user.id === id ? S.user : null);
+const initial = n => esc((n || '?').trim().charAt(0).toUpperCase());
+const isMgr = () => S.user && S.user.role === 'manager';
+function save() { store.set('tasks', S.tasks); store.set('team', S.team); store.set('user', S.user); }
+
+/* ---------- router ---------- */
+const routes = { home: vHome, tasks: vTasks, task: vTaskForm, team: vTeam, person: vPerson };
+function go(h) { if (location.hash === '#' + h) render(); else location.hash = h; }
+window.addEventListener('hashchange', render);
+function render() {
+  document.documentElement.lang = S.lang; document.documentElement.dir = S.lang === 'ar' ? 'rtl' : 'ltr';
+  const app = $('#app');
+  if (!S.token) { app.innerHTML = vLogin(); bindLogin(); return; }
+  const [name, arg] = location.hash.replace(/^#\/?/, '').split('/');
+  const fn = routes[name] || vHome;
+  if ((name === 'team' || name === 'person') && !isMgr()) { location.hash = 'home'; return; }
+  app.innerHTML = (DEMO ? `<div class="demo">${t('demo')}</div>` : '') + fn(arg) + navBar(name || 'home');
+  window.scrollTo(0, 0);
+}
+function navBar(cur) {
+  const items = [['home', 'home', t('home')], ['tasks', 'tasks', t('tasks')]];
+  if (isMgr()) items.push(['team', 'users', t('team')]);
+  if (cur === 'task' || cur === 'person') cur = cur === 'task' ? 'tasks' : 'team';
+  return `<nav class="bar" aria-label="nav">${items.map(([r, i, l]) => `<a href="#${r}" class="${cur === r ? 'on' : ''}" ${cur === r ? 'aria-current="page"' : ''}>${ic(i, 22)}${l}</a>`).join('')}</nav>`;
+}
+function hdr(title, sub, right = '', back = '') {
+  return `<header class="top">${back ? `<a class="ib" href="#${back}" aria-label="back">${ic('back', 22, 'currentColor', 1.8, 'flip')}</a>` : ''}<div class="grow"><h1>${title}</h1>${sub ? `<div class="sub">${sub}</div>` : ''}</div>${right}</header>`;
+}
+
+/* ---------- login ---------- */
+function vLogin() {
+  return `<div class="login-top">${LOGO(88)}<div class="d" dir="ltr" style="font-size:32px;line-height:1.1">samar<span style="color:#FFC800">Hive</span></div><div style="color:#CBD2DC;font-size:15px">${t('team_sub')}</div>
+  <button class="pill" data-lang style="position:absolute;top:calc(14px + env(safe-area-inset-top));inset-inline-end:14px;color:#fff;border-color:#4B5563">${S.lang === 'ar' ? 'Français' : 'العربية'}</button></div>
+  ${DEMO ? `<div class="demo">${t('demo')}</div>` : ''}
+  <form class="main" id="lf" style="padding-top:24px;gap:16px" autocomplete="on">
+  <h2 class="d" style="margin:0;font-size:22px;font-weight:600">${t('login')}</h2>
+  <label class="f">${t('user')}<input class="inp" name="u" dir="ltr" autocapitalize="none" autocomplete="username" required value="${esc(store.get('lastUser', ''))}"></label>
+  <div class="f" style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600">${t('code')}<div class="code6">${[0,1,2,3,4,5].map(i => `<input inputmode="numeric" maxlength="1" aria-label="${i + 1}" data-i="${i}" autocomplete="${i ? 'off' : 'one-time-code'}">`).join('')}</div></div>
+  <div class="err" id="le"></div>
+  <button class="btn y big" type="submit">${t('enter')}</button>
+  <p class="muted" style="text-align:center;margin:0">${t('forgot')}</p></form>`;
+}
+function bindLogin() {
+  const boxes = [...document.querySelectorAll('.code6 input')];
+  boxes.forEach((b, i) => {
+    b.addEventListener('input', () => {
+      const v = b.value.replace(/\D/g, '');
+      if (v.length > 1) { v.split('').slice(0, 6 - i).forEach((c, j) => boxes[i + j].value = c); boxes[Math.min(5, i + v.length - 1)].focus(); }
+      else { b.value = v; if (v && i < 5) boxes[i + 1].focus(); }
+      if (boxes.every(x => x.value)) $('#lf').requestSubmit();
+    });
+    b.addEventListener('keydown', e => { if (e.key === 'Backspace' && !b.value && i) boxes[i - 1].focus(); });
+  });
+  $('#lf').addEventListener('submit', async e => {
+    e.preventDefault();
+    const u = e.target.u.value.trim().toLowerCase(), code = boxes.map(x => x.value).join('');
+    if (code.length < 6) { boxes.find(x => !x.value).focus(); return; }
+    const btn = e.target.querySelector('button[type=submit]'); btn.disabled = true; $('#le').textContent = '';
+    try {
+      const r = await api('login', { username: u, code });
+      S.token = r.token; S.user = r.user; store.set('token', r.token); store.set('lastUser', u);
+      await refresh(); go('home');
+    } catch (er) { $('#le').textContent = t(er.message === 'locked' ? 'locked' : 'bad_login'); boxes.forEach(x => x.value = ''); boxes[0].focus(); btn.disabled = false; }
+  });
+  (store.get('lastUser', '') ? boxes[0] : $('#lf').u).focus();
+}
+
+/* ---------- data ---------- */
+async function refresh() {
+  const r = await api('bootstrap');
+  S.user = r.user; S.team = r.team; S.tasks = r.tasks; save();
+}
+function filtered(f, scope) {
+  const now = new Date(), k0 = dayKey(now), k1 = dayKey(addDays(now, 1)), k7 = dayKey(addDays(now, 7));
+  let xs = S.tasks.slice();
+  if (scope === 'mine') xs = xs.filter(x => x.assigneeId === S.user.id);
+  xs = xs.filter(x => {
+    const st = status(x), k = x.due ? x.due.slice(0, 10) : k0;
+    if (f === 'done') return st === 'done';
+    if (st === 'done') return f === 'today' && k === k0;
+    if (f === 'today') return k <= k0;
+    if (f === 'tomorrow') return k === k1;
+    if (f === 'week') return k <= k7;
+    return true;
+  });
+  const rank = { late: 0, prog: 1, new: 2, done: 3 };
+  return xs.sort((a, b) => f === 'done' ? (b.doneAt || '').localeCompare(a.doneAt || '') : (rank[status(a)] - rank[status(b)]) || (a.due || '').localeCompare(b.due || ''));
+}
+
+/* ---------- home ---------- */
+function vHome() {
+  const now = new Date(), h = now.getHours();
+  const greet = `${h < 12 ? t('morning') : h < 18 ? t('hello') : t('evening')}، ${esc(S.user.name)}`.replace('،', S.lang === 'ar' ? '،' : ',');
+  const date = `${t('days')[now.getDay()]} ${now.getDate()} ${t('months')[now.getMonth()]}`;
+  const scope = isMgr() ? S.tasks : S.tasks.filter(x => x.assigneeId === S.user.id);
+  const today = scope.filter(x => (x.due || '').slice(0, 10) <= dayKey(now) && (status(x) !== 'done' || (x.doneAt || '').slice(0, 10) === dayKey(now)));
+  const done = today.filter(x => status(x) === 'done').length, late = today.filter(x => status(x) === 'late').length;
+  const mine = filtered('today', 'mine').filter(x => status(x) !== 'done');
+  let teamHtml = '';
+  if (isMgr()) {
+    const people = S.team.filter(u => u.active).map(u => {
+      const ts = today.filter(x => x.assigneeId === u.id), d = ts.filter(x => status(x) === 'done').length, l = ts.filter(x => status(x) === 'late').length;
+      return ts.length ? `<div class="row"><span class="av">${initial(u.name)}</span><div class="grow"><div class="row between" style="font-size:14px"><span>${esc(u.name)}${l ? ` <span class="chip st-late">${l} ${t('late')}</span>` : ''}</span><span class="d">${d}/${ts.length}</span></div><div class="bar8" style="margin-top:6px"><i style="width:${Math.round(d / ts.length * 100)}%"></i></div></div></div>` : '';
+    }).join('');
+    teamHtml = people ? `<div class="h2">${t('team_today')}</div><div class="card" style="display:flex;flex-direction:column;gap:14px">${people}</div>` : '';
+  }
+  return hdr(greet, date, `<button class="ib" data-settings aria-label="${t('settings')}"><span class="d" style="font-size:15px">${initial(S.user.name)}</span></button>`) +
+  `<main class="main">
+  <a class="hero" href="#tasks" style="text-decoration:none;display:flex;flex-direction:column;gap:12px">${DECO}
+   <div class="row between"><span class="lbl">${t('today_tasks')}</span>${late ? `<span class="chip" style="background:#FFC800;color:#1F2937">${late} ${t('late')}</span>` : ''}</div>
+   <div class="big"><bdi>${done}/${today.length}</bdi> <span style="font-size:16px;color:#FFC800">${t('done_of').split(' ')[0]}</span></div>
+   <div class="bar8" style="background:rgba(255,255,255,.14)"><i style="width:${today.length ? Math.round(done / today.length * 100) : 0}%;background:#FFC800"></i></div></a>
+  <div class="h2">${t('my_today')}</div>
+  ${mine.length ? mine.map(taskCard).join('') : `<div class="card empty">${t('all_done')}</div>`}
+  ${teamHtml}
+  <div class="card row" style="background:transparent;box-shadow:none;border-style:dashed">${LOGO(36)}<div class="grow"><div style="font-weight:600;font-size:14px">${t('soon')}</div><div class="muted">${t('soon_t')}</div></div></div>
+  </main>`;
+}
+
+/* ---------- tasks ---------- */
+function taskCard(x) {
+  const st = status(x), u = userById(x.assigneeId), canEdit = isMgr() || x.createdBy === S.user.id;
+  const rep = x.repeat === 'daily' ? ' · ' + t('daily_r') : x.repeat === 'weekly' ? ' · ' + t('weekly_r') : '';
+  return `<div class="card task ${st === 'done' ? 'done' : ''}" data-task="${x.id}">
+  <div class="row" style="align-items:flex-start">
+   <button class="check ${st === 'done' ? 'on' : ''}" data-done="${x.id}" aria-label="${t('done')}">${ic('check', 22, st === 'done' ? '#fff' : '#C9BEA9', 2.4)}</button>
+   <div class="grow" ${canEdit ? `data-edit="${x.id}" style="cursor:pointer"` : ''}><div class="t">${esc(x.title)}</div>
+   <div class="meta">${u ? `<span class="av" style="width:24px;height:24px;font-size:11px">${initial(u.name)}</span>${esc(u.name)} ·` : ''}${ic('clock', 15)}<span>${fmtDue(x.due)}${rep}</span></div></div>
+   <span class="chip st-${st}">${t('st_' + st)}</span></div>
+  ${st !== 'done' && u && u.id !== S.user.id ? `<div class="row"><button class="btn c sm grow" data-remind="${x.id}">${ic('bell', 18)}${t('remind')}</button></div>` : ''}
+  </div>`;
+}
+function vTasks() {
+  const fs = ['today', 'tomorrow', 'week', 'done'];
+  const list = filtered(S.f, isMgr() ? S.scope : 'mine');
+  const count = f => filtered(f, isMgr() ? S.scope : 'mine').filter(x => f === 'done' || status(x) !== 'done').length;
+  return hdr(t('tasks'), '') + `<main class="main">
+  <div class="pills" role="tablist">${fs.map(f => `<button class="pill ${S.f === f ? 'on' : ''}" data-f="${f}" role="tab" aria-selected="${S.f === f}">${t('f_' + f)}<span class="n">${count(f)}</span></button>`).join('')}</div>
+  ${isMgr() ? `<div class="seg">${['all', 'mine'].map(s => `<button class="${S.scope === s ? 'on' : ''}" data-scope="${s}">${t('f_' + s)}</button>`).join('')}</div>` : ''}
+  ${list.length ? list.map(taskCard).join('') : `<div class="empty">${t('none')}</div>`}
+  </main><button class="fab" data-new>${ic('plus', 22)}${t('new_task')}</button>`;
+}
+function vTaskForm(id) {
+  const x = id ? S.tasks.find(y => y.id === id) : null;
+  const now = new Date();
+  if (S.draft && (S.draft.id || null) !== (x ? x.id : null)) S.draft = null;
+  const d = S.draft || (x ? { ...x } :{ title: '', assigneeId: S.user.id, due: dayKey(now) + 'T18:00', repeat: 'once', wa: true });
+  S.draft = d;
+  const day = d.due.slice(0, 10), tm = d.due.slice(11, 16) || '18:00';
+  const dayChoice = day === dayKey(now) ? 'today' : day === dayKey(addDays(now, 1)) ? 'tomorrow' : 'pick';
+  const people = (isMgr() ? S.team.filter(u => u.active) : [S.user]);
+  return hdr(x ? t('edit_task') : t('new_task'), '', '', 'tasks') + `<form class="main" id="tf" style="gap:14px">
+  <label class="f">${t('task')}<input class="inp" name="title" value="${esc(d.title)}" placeholder="${t('task_ph')}" maxlength="140" required></label>
+  ${people.length > 1 ? `<div class="f" style="display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600">${t('who')}<div class="people">${people.map(u => `<button type="button" class="${d.assigneeId === u.id ? 'on' : ''}" data-who="${u.id}" aria-pressed="${d.assigneeId === u.id}"><span class="av">${initial(u.name)}</span>${esc(u.name)}</button>`).join('')}</div></div>` : ''}
+  <div style="display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600">${t('when')}
+   <div class="pills">${['today', 'tomorrow'].map(k => `<button type="button" class="pill ${dayChoice === k ? 'on' : ''}" data-day="${k}">${t('f_' + k)}</button>`).join('')}
+   <input type="date" class="pill ${dayChoice === 'pick' ? 'on' : ''}" data-dayp value="${day}" aria-label="${t('pick')}" style="font-weight:500"></div>
+   <label class="row" style="font-weight:500">${ic('clock', 20)}${t('time')}<input type="time" class="inp" name="time" value="${tm}" style="width:130px;height:44px" dir="ltr"></label></div>
+  <div style="display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600">${t('rep')}<div class="seg">${['once', 'daily', 'weekly'].map(r => `<button type="button" class="${d.repeat === r ? 'on' : ''}" data-rep="${r}">${t(r)}</button>`).join('')}</div></div>
+  ${!x ? `<div class="card row"><span style="color:#166534">${ic('msg', 22)}</span><div class="grow"><div style="font-weight:600;font-size:15px">${t('wa_send')}</div><div class="muted">${t('wa_send_s')}</div></div><button type="button" class="switch ${d.wa ? 'on' : ''}" data-wa role="switch" aria-checked="${!!d.wa}" aria-label="${t('wa_send')}"></button></div>` : ''}
+  <div class="err" id="te"></div>
+  <button class="btn y big" type="submit">${ic('check', 20)}${t('save')}</button>
+  ${x ? `<button type="button" class="btn red big" data-del="${x.id}">${ic('trash', 20)}${t('del')}</button>` : ''}
+  </form>`;
+}
+
+/* ---------- team ---------- */
+function vTeam() {
+  const list = S.team.slice().sort((a, b) => (b.active - a.active) || (a.role === 'manager' ? -1 : 1));
+  return hdr(t('team'), t('managers_only'), `<a class="btn y sm" href="#person">${ic('plus', 18)}${t('add')}</a>`) + `<main class="main">
+  ${list.map(u => `<div class="card" style="display:flex;flex-direction:column;gap:10px;${u.active ? '' : 'opacity:.75'}">
+   <div class="row"><span class="av" style="width:44px;height:44px;font-size:17px">${initial(u.name)}</span><div class="grow"><div style="font-weight:600;font-size:16px">${esc(u.name)}</div><div class="muted"><bdi dir="ltr">${esc(u.username)}</bdi> · ${u.lastLogin ? t('last') + ' ' + fmtDue(u.lastLogin.slice(0, 16)) : t('never')}</div></div>
+   ${!u.active ? `<span class="chip st-late">${t('disabled')}</span>` : u.role === 'manager' ? `<span class="chip" style="background:#1F2937;color:#FFC800">${t('manager')}</span>` : `<span class="chip st-new">${t('employee')}</span>`}</div>
+   ${u.id !== S.user.id ? `<div class="row" style="flex-wrap:wrap;gap:8px">${u.active ? `<button class="btn c sm grow" data-reset="${u.id}">${ic('key', 18)}${t('reset')}</button><button class="btn o sm grow" data-role="${u.id}">${ic('shield', 18)}${u.role === 'manager' ? t('make_emp') : t('make_mgr')}</button>` : ''}<button class="btn ${u.active ? 'red' : 'o'} sm grow" data-active="${u.id}">${ic('off', 18)}${u.active ? t('disable') : t('enable')}</button></div>` : ''}
+  </div>`).join('')}</main>`;
+}
+function vPerson() {
+  return hdr(t('add_person'), t('managers_only'), '', 'team') + `<form class="main" id="pf" style="gap:14px">
+  <div class="card row" style="background:#ECFDF3;border-color:#ECFDF3;box-shadow:none;align-items:flex-start"><span style="color:#166534">${ic('msg', 22)}</span><div style="font-size:13px;line-height:1.7">${t('add_info')}</div></div>
+  <label class="f">${t('name')}<input class="inp" name="name" required maxlength="40"></label>
+  <label class="f">${t('username')}<input class="inp" name="username" dir="ltr" autocapitalize="none" required maxlength="30" pattern="[a-zA-Z0-9._@\\-]+"></label>
+  <label class="f">${t('phone')}<input class="inp" name="phone" dir="ltr" inputmode="tel" required placeholder="36 00 00 00"></label>
+  <div style="display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600">${t('role')}<div class="seg"><button type="button" class="on" data-prole="employee">${t('employee')}</button><button type="button" data-prole="manager">${t('manager')}</button></div></div>
+  <div class="err" id="pe"></div>
+  <button class="btn y big" type="submit">${ic('msg', 20)}${t('add')} · ${t('send_wa')}</button></form>`;
+}
+function codeSheet(u, code) {
+  const link = CFG.APP_URL || location.href.split('#')[0];
+  const msg = fill(t('wa_acc'), { n: u.name, u: u.username, c: code, l: link });
+  const bg = sheet(`<div class="muted">${t('code_for')} ${esc(u.name)}</div><div class="d" dir="ltr" style="font-size:40px;letter-spacing:.2em;text-align:center">${code}</div>
+   <button class="btn y big" data-sendacc>${ic('msg', 20)}${t('send_wa')}</button><button class="btn c big" data-copy>${t('copy')}</button><button class="btn o big" data-close>${t('ok')}</button>`);
+  bg.querySelector('[data-sendacc]').onclick = () => wa(u.phone, msg);
+  bg.querySelector('[data-copy]').onclick = () => { navigator.clipboard && navigator.clipboard.writeText(msg).then(() => toast(t('copied'))); };
+}
+function settingsSheet() {
+  const bg = sheet(`<div class="row">${LOGO(44)}<div class="grow"><div class="d" style="font-size:18px">${esc(S.user.name)}</div><div class="muted"><bdi dir="ltr">${esc(S.user.username)}</bdi> · ${t(S.user.role)}</div></div></div>
+   <div style="font-weight:600;font-size:14px">${ic('globe', 18)} ${t('lang')}</div><div class="seg"><button class="${S.lang === 'ar' ? 'on' : ''}" data-setlang="ar">العربية</button><button class="${S.lang === 'fr' ? 'on' : ''}" data-setlang="fr">Français</button></div>
+   <div class="muted">${t('install')}</div>
+   <button class="btn red big" data-logout>${ic('out', 20, 'currentColor', 1.8, 'flip')}${t('logout')}</button><div class="muted" style="text-align:center">samarHive · v1.0</div>`);
+  bg.addEventListener('click', e => {
+    const l = e.target.closest('[data-setlang]'); if (l) { setLang(l.dataset.setlang); bg.remove(); }
+    if (e.target.closest('[data-logout]')) { bg.remove(); logout(); }
+  });
+}
+function setLang(l) { S.lang = l; store.set('lang', l); render(); }
+function logout(silent) {
+  if (!DEMO && !silent && S.token) fetch(CFG.API_URL, { method: 'POST', body: JSON.stringify({ action: 'logout', token: S.token }) }).catch(() => {});
+  S.token = null; S.user = null; S.tasks = []; S.team = [];
+  ['token', 'user', 'tasks', 'team'].forEach(store.del); location.hash = ''; render();
+}
+
+/* ---------- actions (event delegation) ---------- */
+document.addEventListener('click', async e => {
+  const el = e.target.closest('button,a,input'); if (!el) return;
+  const ds = el.dataset;
+  if ('lang' in ds) return setLang(S.lang === 'ar' ? 'fr' : 'ar');
+  if ('settings' in ds) return settingsSheet();
+  if (ds.f) { S.f = ds.f; return render(); }
+  if (ds.scope) { S.scope = ds.scope; return render(); }
+  if ('new' in ds) { S.draft = null; return go('task'); }
+  if (ds.edit) { S.draft = null; return go('task/' + ds.edit); }
+  if (ds.done) return toggleDone(ds.done);
+  if (ds.remind) {
+    const x = S.tasks.find(y => y.id === ds.remind), u = userById(x.assigneeId);
+    return wa(u.phone, fill(t('wa_rem'), { n: u.name, t: x.title, d: fmtDue(x.due) }));
+  }
+  // task form
+  if (ds.who) { keepTitle(); S.draft.assigneeId = ds.who; return rerenderForm(); }
+  if (ds.day) { keepTitle(); const d = ds.day === 'today' ? new Date() : addDays(new Date(), 1); S.draft.due = dayKey(d) + S.draft.due.slice(10); return rerenderForm(); }
+  if (ds.rep) { keepTitle(); S.draft.repeat = ds.rep; return rerenderForm(); }
+  if ('wa' in ds) { S.draft.wa = !S.draft.wa; el.classList.toggle('on'); el.setAttribute('aria-checked', S.draft.wa); return; }
+  if (ds.del) {
+    if (!(await ask(t('del_q'), t('del')))) return;
+    const before = S.tasks; S.tasks = S.tasks.filter(y => y.id !== ds.del); save(); S.draft = null; go('tasks');
+    try { await api('tasks.delete', { id: ds.del }); } catch (er) { S.tasks = before; save(); render(); fail(er); }
+    return;
+  }
+  if (ds.prole) { document.querySelectorAll('[data-prole]').forEach(b => b.classList.toggle('on', b === el)); return; }
+  // team
+  if (ds.reset) {
+    if (!(await ask(t('reset_q'), t('reset')))) return;
+    try { const r = await api('team.resetCode', { id: ds.reset }); codeSheet(userById(ds.reset), r.code); } catch (er) { fail(er); }
+    return;
+  }
+  if (ds.role) {
+    const u = userById(ds.role), role = u.role === 'manager' ? 'employee' : 'manager', old = u.role;
+    u.role = role; render();
+    try { await api('team.update', { id: u.id, role }); save(); } catch (er) { u.role = old; render(); fail(er); }
+    return;
+  }
+  if (ds.active) {
+    const u = userById(ds.active);
+    if (u.active && !(await ask(t('dis_q'), t('disable')))) return;
+    u.active = !u.active; render();
+    try { await api('team.update', { id: u.id, active: u.active }); save(); } catch (er) { u.active = !u.active; render(); fail(er); }
+  }
+});
+document.addEventListener('change', e => {
+  if (e.target.matches('[data-dayp]') && e.target.value) { keepTitle(); S.draft.due = e.target.value + S.draft.due.slice(10); rerenderForm(); }
+  if (e.target.matches('#tf [name=time]') && S.draft) S.draft.due = S.draft.due.slice(0, 10) + 'T' + e.target.value;
+});
+document.addEventListener('submit', async e => {
+  if (e.target.id === 'tf') { e.preventDefault(); return saveTask(); }
+  if (e.target.id === 'pf') { e.preventDefault(); return addPerson(e.target); }
+});
+function keepTitle() { const f = $('#tf'); if (f && S.draft) { S.draft.title = f.title.value; S.draft.due = S.draft.due.slice(0, 10) + 'T' + (f.time.value || '18:00'); } }
+function rerenderForm() { const y = window.scrollY; render(); window.scrollTo(0, y); }
+
+async function toggleDone(id) {
+  const x = S.tasks.find(y => y.id === id), old = x.status, oldDone = x.doneAt;
+  const to = status(x) === 'done' ? 'new' : 'done';
+  x.status = to; x.doneAt = to === 'done' ? new Date().toISOString() : ''; save(); render();
+  if (to === 'done' && navigator.vibrate) navigator.vibrate(12);
+  try {
+    const r = await api('tasks.setStatus', { id, status: to });
+    Object.assign(x, r.task); if (r.next && !S.tasks.some(y => y.id === r.next.id)) S.tasks.push(r.next); save(); render();
+  } catch (er) { x.status = old; x.doneAt = oldDone; save(); render(); fail(er); }
+}
+async function saveTask() {
+  keepTitle();
+  const d = S.draft;
+  if (!d.title.trim()) { $('#te').textContent = t('need_title'); $('#tf').title.focus(); return; }
+  const task = { id: d.id, title: d.title.trim(), assigneeId: d.assigneeId, due: d.due, repeat: d.repeat };
+  const btn = $('#tf button[type=submit]'); btn.disabled = true;
+  try {
+    const saved = await api('tasks.save', { task });
+    const i = S.tasks.findIndex(y => y.id === saved.id); if (i >= 0) S.tasks[i] = saved; else S.tasks.push(saved);
+    save();
+    const u = userById(saved.assigneeId);
+    if (!d.id && d.wa && u && u.id !== S.user.id) wa(u.phone, fill(t('wa_task'), { n: u.name, t: saved.title, d: fmtDue(saved.due) }));
+    S.draft = null; toast(t('saved')); go('tasks');
+  } catch (er) { btn.disabled = false; fail(er); }
+}
+async function addPerson(f) {
+  const name = f.name.value.trim(), username = f.username.value.trim().toLowerCase(), phone = f.phone.value.replace(/\D/g, '').replace(/^222/, '');
+  const role = document.querySelector('[data-prole].on').dataset.prole;
+  if (!name || !username || !phone) { $('#pe').textContent = t('need_fields'); return; }
+  if (!/^[234]\d{7}$/.test(phone)) { $('#pe').textContent = t('phone_err'); f.phone.focus(); return; }
+  const btn = f.querySelector('button[type=submit]'); btn.disabled = true;
+  try {
+    const r = await api('team.add', { name, username, phone, role });
+    S.team.push(r.user); save(); go('team'); codeSheet(r.user, r.code);
+  } catch (er) { btn.disabled = false; $('#pe').textContent = er.message === 'username_taken' ? (S.lang === 'ar' ? 'اسم المستخدم مستعمل' : 'Identifiant déjà pris') : ''; if (er.message !== 'username_taken') fail(er); }
+}
+
+/* ---------- start ---------- */
+render();
+if (S.token) refresh().then(render).catch(e => { if (e.message !== 'auth') console.warn(e); });
+setInterval(() => { if (S.token && document.visibilityState === 'visible') refresh().then(() => { if (!document.querySelector('form,.sheet-bg')) render(); }).catch(() => {}); }, 60000);
+document.addEventListener('visibilitychange', () => { if (S.token && document.visibilityState === 'visible') refresh().then(() => { if (!document.querySelector('form,.sheet-bg')) render(); }).catch(() => {}); });
+if ('serviceWorker' in navigator && location.protocol === 'https:' && !DEMO) navigator.serviceWorker.register('sw.js').catch(() => {});
+</script>
+</body>
+</html>
