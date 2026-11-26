@@ -1,7 +1,6 @@
 // samarHive settings
-// API_URL: the Web app URL of the Google Apps Script (see SETUP.md). Leave empty = demo mode.
 window.SAMARHIVE_CONFIG = {
-  API_URL: '',
-  APP_URL: '',          // the app link sent to new team members (e.g. https://samar-team.github.io/samarhive/)
-  DEFAULT_LANG: 'ar'    // 'ar' or 'fr'
+  API_URL: 'https://script.google.com/macros/s/AKfycbx5iAdwlos2QKCkhubkWzb6AzsRrXs7JANuidemrMDdOfa1LNhEiTt2rUjGZFOpXls/exec',
+  APP_URL: 'https://salemeose.github.io/samarhive/',
+  DEFAULT_LANG: 'ar'
 };
