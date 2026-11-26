@@ -13,19 +13,19 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;600&family=Readex+Pro:wght@400;500;600&display=swap">
 <script src="config.js"></script>
 <style>
-:root{--navy:#1F2937;--yel:#FFC800;--gold:#B98500;--goldt:#8A6400;--bg:#F6F3ED;--line:#ECE5D8;--grey:#4B5563;--red:#B42318;--redbg:#FEF3F2;--green:#166534;--greenbg:#ECFDF3;--amberbg:#FFF4CC;--d:'Alexandria','Readex Pro',system-ui,sans-serif}
+:root{--sh:0 1px 2px rgba(31,41,55,.05),0 8px 24px rgba(31,41,55,.08);--sh2:0 14px 34px rgba(17,24,39,.22);--blue:#2563EB;--bluebg:#EFF6FF;--vio:#7C3AED;--viobg:#F5F3FF;--navy:#1F2937;--yel:#FFC800;--gold:#B98500;--goldt:#8A6400;--bg:#F6F3ED;--line:#ECE5D8;--grey:#4B5563;--red:#B42318;--redbg:#FEF3F2;--green:#166534;--greenbg:#ECFDF3;--amberbg:#FFF4CC;--d:'Alexandria','Readex Pro',system-ui,sans-serif}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;background:var(--bg);color:var(--navy);font-family:'Readex Pro',system-ui,sans-serif;line-height:1.5}
 button,input,select{font:inherit;color:inherit}
 button{cursor:pointer}
 a{color:inherit}
-#app{max-width:520px;margin:0 auto;min-height:100dvh;display:flex;flex-direction:column}
-.top{position:sticky;top:0;z-index:5;background:var(--bg);padding:calc(14px + env(safe-area-inset-top)) 18px 10px;display:flex;align-items:center;gap:10px}
+#app{max-width:560px;margin:0 auto;min-height:100dvh;display:flex;flex-direction:column}
+.top{position:sticky;top:0;z-index:5;background:rgba(246,243,237,.9);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);padding:calc(14px + env(safe-area-inset-top)) 18px 10px;display:flex;align-items:center;gap:10px}
 .top h1{margin:0;font:600 23px/1.3 var(--d);flex:1;min-width:0}
 .top .sub{font-size:13px;color:var(--grey);font-family:'Readex Pro',sans-serif;font-weight:400}
 .main{flex:1;padding:4px 16px 120px;display:flex;flex-direction:column;gap:12px}
-.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:14px;box-shadow:0 10px 28px rgba(31,41,55,.05)}
-.hero{background:var(--navy);color:#fff;border-radius:26px;padding:18px 20px;position:relative;overflow:hidden}
+.card{background:#fff;border:1px solid rgba(236,229,216,.75);border-radius:20px;padding:14px;box-shadow:var(--sh)}
+.hero{background:radial-gradient(130% 150% at 100% 0%,#33445C 0%,#1F2937 55%,#141B26 100%);box-shadow:var(--sh2);color:#fff;border-radius:26px;padding:18px 20px;position:relative;overflow:hidden}
 .hero svg.deco{position:absolute;inset-inline-start:-40px;top:-50px;opacity:.14;pointer-events:none}
 .hero .lbl{font-size:13px;color:#CBD2DC}
 .big{font:500 38px/1.1 var(--d)}
@@ -35,20 +35,22 @@ a{color:inherit}
 .grow{flex:1;min-width:0}
 .muted{color:var(--grey);font-size:13px}
 .h2{font:600 16px/1.4 var(--d);margin:6px 2px 0}
-.ib{flex:none;width:44px;height:44px;border-radius:22px;border:1px solid #E6DECF;background:#fff;display:flex;align-items:center;justify-content:center;position:relative}
+.ib{flex:none;width:44px;height:44px;border-radius:22px;border:1px solid #EFE8DB;background:#fff;box-shadow:var(--sh);display:flex;align-items:center;justify-content:center;position:relative}
 .ib .badge{position:absolute;top:4px;inset-inline-end:4px;min-width:17px;height:17px;border-radius:9px;background:var(--red);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;padding:0 4px}
-.btn{min-height:48px;padding:0 16px;border-radius:24px;border:1.5px solid var(--navy);background:var(--navy);color:#fff;font-weight:600;font-family:var(--d);display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:15px;white-space:nowrap;text-decoration:none}
-.btn.y{background:var(--yel);border-color:var(--yel);color:var(--navy)}
-.btn.o{background:#fff;color:var(--navy)}
-.btn.c{background:#F1EADC;border-color:#F1EADC;color:var(--navy)}
+.btn{min-height:48px;padding:0 16px;border-radius:24px;border:1.5px solid var(--navy);background:var(--navy);color:#fff;font-weight:600;font-family:var(--d);display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:15px;white-space:nowrap;text-decoration:none;box-shadow:0 6px 16px rgba(31,41,55,.22);transition:transform .1s}
+.btn:active{transform:scale(.97)}
+.btn.y{background:var(--yel);border-color:var(--yel);color:var(--navy);box-shadow:0 6px 16px rgba(234,179,8,.35)}
+.btn.o{background:#fff;color:var(--navy);box-shadow:none}
+.btn.g{background:var(--greenbg);border-color:var(--greenbg);color:var(--green);box-shadow:none}.btn.gs{background:#16A34A;border-color:#16A34A;color:#fff;box-shadow:0 6px 16px rgba(22,163,74,.3)}
+.btn.c{background:#F1EADC;border-color:#F1EADC;color:var(--navy);box-shadow:none}
 .btn.sm{min-height:40px;font-size:14px;padding:0 14px}
 .btn.big{min-height:56px;border-radius:28px;width:100%}
-.btn.red{background:#fff;border-color:var(--red);color:var(--red)}
+.btn.red{background:#fff;border-color:#F3C5C0;color:var(--red);box-shadow:none}
 .btn:disabled{opacity:.5}
 .pills{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
 .pills::-webkit-scrollbar{display:none}
 .pill{flex:none;height:40px;padding:0 15px;border-radius:20px;border:1px solid #E2D9C8;background:transparent;font-weight:500;font-size:14px}
-.pill.on{background:var(--navy);border-color:var(--navy);color:var(--yel);font-weight:600}
+.pill{background:#fff}.pill.on{background:var(--navy);border-color:var(--navy);color:var(--yel);font-weight:600;box-shadow:0 4px 12px rgba(31,41,55,.22)}
 .pill .n{opacity:.7;margin-inline-start:4px}
 .seg{display:flex;gap:4px;padding:4px;background:#EDE6D9;border-radius:16px}
 .seg button{flex:1;height:40px;border-radius:12px;border:0;background:transparent;color:var(--grey);font-weight:600}
@@ -56,16 +58,18 @@ a{color:inherit}
 .chip{flex:none;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
 .st-late{color:var(--red);background:var(--redbg)}.st-prog{color:var(--goldt);background:var(--amberbg)}.st-new{color:var(--navy);background:#E5E7EB}.st-done{color:var(--green);background:var(--greenbg)}
 .av{flex:none;width:30px;height:30px;border-radius:15px;background:var(--amberbg);color:var(--goldt);display:flex;align-items:center;justify-content:center;font:600 13px var(--d)}
-.task{display:flex;flex-direction:column;gap:8px}
+.task{display:flex;flex-direction:column;gap:8px;border-inline-start:5px solid var(--sc,#E5E7EB)}
+.ts-late{--sc:#F04438}.ts-prog{--sc:#FFC800}.ts-new{--sc:#60A5FA}.ts-done{--sc:#22C55E}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.tile{background:#fff;border-radius:18px;padding:12px;box-shadow:var(--sh);text-decoration:none;display:flex;flex-direction:column;gap:6px;border:1px solid rgba(236,229,216,.75)}.tile .ti{width:40px;height:40px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:var(--cb);color:var(--c)}.tile b{font:500 22px/1 var(--d)}.tile span{font-size:12.5px;color:var(--grey)}
 .task .t{font-size:16px;font-weight:600;line-height:1.45}
 .task.done .t{text-decoration:line-through;color:#6B7280}
-.check{flex:none;width:44px;height:44px;border-radius:22px;border:2px solid #D8CFBE;background:#fff;display:flex;align-items:center;justify-content:center}
-.check.on{background:var(--green);border-color:var(--green)}
+.check{flex:none;width:44px;height:44px;border-radius:22px;border:2px solid #D8CFBE;background:#fff;transition:background .15s;display:flex;align-items:center;justify-content:center}
+.check.on{background:#16A34A;border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.35)}
 .meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:13px;color:var(--grey)}
 .fab{position:fixed;bottom:calc(98px + env(safe-area-inset-bottom));inset-inline-start:max(16px,calc(50% - 244px));height:56px;padding:0 20px;border-radius:28px;background:var(--yel);color:var(--navy);border:0;display:flex;align-items:center;gap:8px;font:600 15px var(--d);box-shadow:0 8px 20px rgba(31,41,55,.25);z-index:6}
 nav.bar{position:fixed;bottom:calc(12px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:min(492px,calc(100% - 24px));height:68px;background:var(--navy);border-radius:26px;display:flex;padding:4px;box-shadow:0 12px 30px rgba(31,41,55,.28);z-index:7}
 nav.bar a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:#AEB4BE;text-decoration:none;font-size:11.5px}
-nav.bar a.on{color:var(--yel);font-weight:600}
+nav.bar a.on{color:var(--yel);font-weight:600}nav.bar a.on svg{filter:drop-shadow(0 2px 8px rgba(255,200,0,.55))}
 nav.bar a.on::after{content:"";width:4px;height:4px;border-radius:2px;background:var(--yel)}
 label.f{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
 .inp{height:52px;border-radius:14px;border:1.5px solid #E2D9C8;background:#fff;padding:0 14px;font-size:16px;width:100%}
@@ -122,7 +126,7 @@ const DECO = `<svg class="deco" width="170" height="170" viewBox="0 0 240 240" a
 /* ---------- text ---------- */
 const L = {
 ar:{login:'تسجيل الدخول',team_sub:'خلية سمر · فريق المتجر',user:'اسم المستخدم أو البريد',code:'الرمز الشخصي (6 أرقام)',enter:'دخول',forgot:'نسيت الرمز؟ اطلب من المدير إعادة تعيينه، يصلك على واتساب.',bad_login:'اسم المستخدم أو الرمز غير صحيح',locked:'محاولات كثيرة، حاول بعد 10 دقائق',
-home:'الرئيسية',tasks:'المهام',team:'الفريق',hello:'مرحبًا',morning:'صباح الخير',evening:'مساء الخير',today_tasks:'مهام اليوم',done_of:'منجزة من',late:'متأخرة',my_today:'مهامي اليوم',team_today:'الفريق اليوم',all_done:'لا مهام متبقية اليوم. عمل رائع.',soon:'قريبًا في التطبيق',soon_t:'التجهيز، المخزون، المحاسبة والأرشيف تأتي في المراحل التالية.',
+home:'الرئيسية',tasks:'المهام',team:'الفريق',hello:'مرحبًا',morning:'صباح الخير',evening:'مساء الخير',today_tasks:'مهام اليوم',done_of:'منجزة من',late:'متأخرة',my_today:'مهامي اليوم',team_today:'الفريق اليوم',all_done:'لا مهام متبقية اليوم. عمل رائع.',soon:'قريبًا في التطبيق',soon_t:'المخزون، المحاسبة والأرشيف تأتي في المراحل التالية.',
 f_today:'اليوم',f_tomorrow:'غدًا',f_week:'هذا الأسبوع',f_done:'منجزة',f_all:'الكل',f_mine:'مهامي',none:'لا توجد مهام هنا',new_task:'مهمة جديدة',edit_task:'تعديل المهمة',task:'المهمة',task_ph:'مثال: تصوير المنتجات الجديدة',who:'المسؤول',when:'الموعد',time:'الساعة',pick:'تاريخ آخر',rep:'التكرار',once:'مرة واحدة',daily:'يوميًا',weekly:'أسبوعيًا',wa_send:'إرسال المهمة على واتساب',wa_send_s:'يفتح واتساب برسالة جاهزة للمسؤول',save:'حفظ',del:'حذف المهمة',del_q:'حذف هذه المهمة؟',remind:'تذكير',done:'تم',undo:'إلغاء',need_title:'اكتب المهمة',
 st_new:'جديدة',st_late:'متأخرة',st_done:'منجزة',st_prog:'قيد التنفيذ',start:'بدء',daily_r:'يتكرر يوميًا',weekly_r:'يتكرر أسبوعيًا',yesterday:'أمس',
 managers_only:'للمديرين فقط',add:'إضافة',add_person:'إضافة شخص',name:'الاسم',username:'اسم المستخدم',phone:'رقم واتساب',role:'الدور',manager:'مدير',employee:'موظف',last:'آخر دخول',never:'لم يدخل بعد',reset:'رمز جديد',disable:'تعطيل',enable:'تفعيل',disabled:'معطّل',make_mgr:'جعله مديرًا',make_emp:'جعله موظفًا',add_info:'ينشئ التطبيق رمزًا من 6 أرقام ويفتح واتساب برسالة فيها اسم المستخدم والرمز ورابط التطبيق.',send_wa:'إرسال على واتساب',new_code:'الرمز الجديد',code_for:'رمز',copy:'نسخ',copied:'تم النسخ',need_fields:'أكمل الاسم واسم المستخدم ورقم واتساب',phone_err:'رقم واتساب: 8 أرقام تبدأ بـ 2 أو 3 أو 4',reset_q:'إنشاء رمز جديد؟ الرمز القديم يتوقف فورًا.',dis_q:'تعطيل هذا الحساب؟ يبقى سجله محفوظًا.',
@@ -130,7 +134,7 @@ settings:'الإعدادات',lang:'اللغة',logout:'تسجيل الخروج'
 wa_task:'مرحبًا {n}، مهمة جديدة في samarHive:\n«{t}»\nالموعد: {d}',wa_rem:'تذكير يا {n} 🔔\n«{t}»\nالموعد: {d}',wa_acc:'مرحبًا {n}، هذا حسابك في samarHive (خلية سمر):\nاسم المستخدم: {u}\nالرمز: {c}\nالرابط: {l}',
 days:['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],months:['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر']},
 fr:{login:'Connexion',team_sub:'La ruche SAMAR · équipe de la boutique',user:'Nom d’utilisateur ou e-mail',code:'Code personnel (6 chiffres)',enter:'Se connecter',forgot:'Code oublié ? Demandez au gérant de le réinitialiser, il arrive sur WhatsApp.',bad_login:'Identifiant ou code incorrect',locked:'Trop d’essais, réessayez dans 10 minutes',
-home:'Accueil',tasks:'Tâches',team:'Équipe',hello:'Bonjour',morning:'Bonjour',evening:'Bonsoir',today_tasks:'Tâches du jour',done_of:'faites sur',late:'en retard',my_today:'Mes tâches du jour',team_today:'L’équipe aujourd’hui',all_done:'Plus aucune tâche aujourd’hui. Bravo.',soon:'Bientôt dans l’app',soon_t:'Préparation, stock, compta et archives arrivent dans les prochaines étapes.',
+home:'Accueil',tasks:'Tâches',team:'Équipe',hello:'Bonjour',morning:'Bonjour',evening:'Bonsoir',today_tasks:'Tâches du jour',done_of:'faites sur',late:'en retard',my_today:'Mes tâches du jour',team_today:'L’équipe aujourd’hui',all_done:'Plus aucune tâche aujourd’hui. Bravo.',soon:'Bientôt dans l’app',soon_t:'Stock, compta et archives arrivent dans les prochaines étapes.',
 f_today:'Aujourd’hui',f_tomorrow:'Demain',f_week:'Cette semaine',f_done:'Faites',f_all:'Toutes',f_mine:'Les miennes',none:'Aucune tâche ici',new_task:'Nouvelle tâche',edit_task:'Modifier la tâche',task:'Tâche',task_ph:'Ex. : photos des nouveautés',who:'Responsable',when:'Échéance',time:'Heure',pick:'Autre date',rep:'Répétition',once:'Une fois',daily:'Chaque jour',weekly:'Chaque semaine',wa_send:'Envoyer la tâche sur WhatsApp',wa_send_s:'Ouvre WhatsApp avec un message prêt',save:'Enregistrer',del:'Supprimer la tâche',del_q:'Supprimer cette tâche ?',remind:'Rappel',done:'Fait',undo:'Annuler',need_title:'Écrivez la tâche',
 st_new:'Nouvelle',st_late:'En retard',st_done:'Faite',st_prog:'En cours',start:'Commencer',daily_r:'chaque jour',weekly_r:'chaque semaine',yesterday:'hier',
 managers_only:'Gérants seulement',add:'Ajouter',add_person:'Ajouter une personne',name:'Nom',username:'Nom d’utilisateur',phone:'Numéro WhatsApp',role:'Rôle',manager:'Gérant',employee:'Employé',last:'Vu',never:'Jamais connecté',reset:'Nouveau code',disable:'Désactiver',enable:'Activer',disabled:'Désactivé',make_mgr:'Passer gérant',make_emp:'Passer employé',add_info:'L’app crée un code à 6 chiffres et ouvre WhatsApp avec l’identifiant, le code et le lien.',send_wa:'Envoyer sur WhatsApp',new_code:'Nouveau code',code_for:'Code de',copy:'Copier',copied:'Copié',need_fields:'Complétez nom, identifiant et WhatsApp',phone_err:'WhatsApp : 8 chiffres commençant par 2, 3 ou 4',reset_q:'Créer un nouveau code ? L’ancien ne marche plus.',dis_q:'Désactiver ce compte ? L’historique est gardé.',
@@ -282,10 +286,14 @@ function render() {
   const fn = routes[name] || vHome;
   if ((name === 'team' || name === 'person') && !isMgr()) { location.hash = 'home'; return; }
   app.innerHTML = (DEMO ? `<div class="demo">${t('demo')}</div>` : '') + fn(arg) + navBar(name || 'home');
-  window.scrollTo(0, 0);
+  const route = location.hash;
+  if (route !== render.last) window.scrollTo(0, 0);
+  render.last = route;
+  if (window.onRoute) window.onRoute(name || 'home', arg);
 }
 function navBar(cur) {
   const items = [['home', 'home', t('home')], ['tasks', 'tasks', t('tasks')]];
+  if (routes.prep) items.push(['prep', 'box', t('prep')]);
   if (isMgr()) items.push(['team', 'users', t('team')]);
   if (cur === 'task' || cur === 'person') cur = cur === 'task' ? 'tasks' : 'team';
   return `<nav class="bar" aria-label="nav">${items.map(([r, i, l]) => `<a href="#${r}" class="${cur === r ? 'on' : ''}" ${cur === r ? 'aria-current="page"' : ''}>${ic(i, 22)}${l}</a>`).join('')}</nav>`;
@@ -377,6 +385,11 @@ function vHome() {
    <div class="row between"><span class="lbl">${t('today_tasks')}</span>${late ? `<span class="chip" style="background:#FFC800;color:#1F2937">${late} ${t('late')}</span>` : ''}</div>
    <div class="big"><bdi>${done}/${today.length}</bdi> <span style="font-size:16px;color:#FFC800">${t('done_of').split(' ')[0]}</span></div>
    <div class="bar8" style="background:rgba(255,255,255,.14)"><i style="width:${today.length ? Math.round(done / today.length * 100) : 0}%;background:#FFC800"></i></div></a>
+  <div class="tiles">
+   <a class="tile" href="#tasks" style="--c:#2563EB;--cb:#EFF6FF"><span class="ti">${ic('tasks', 22)}</span><b>${today.filter(x => status(x) !== 'done').length}</b><span>${t('tasks')}</span></a>
+   ${routes.prep ? `<a class="tile" href="#prep" style="--c:#8A6400;--cb:#FFF4CC"><span class="ti">${ic('box', 22)}</span><b>${(store.get('orders', []) || []).filter(o => o.status === 'open').length}</b><span>${t('prep')}</span></a>` : ''}
+   ${isMgr() ? `<a class="tile" href="#team" style="--c:#7C3AED;--cb:#F5F3FF"><span class="ti">${ic('users', 22)}</span><b>${S.team.filter(u => u.active).length}</b><span>${t('team')}</span></a>` : `<a class="tile" href="#tasks" style="--c:#16A34A;--cb:#ECFDF3"><span class="ti">${ic('check', 22)}</span><b>${done}</b><span>${t('f_done')}</span></a>`}
+  </div>
   <div class="h2">${t('my_today')}</div>
   ${mine.length ? mine.map(taskCard).join('') : `<div class="card empty">${t('all_done')}</div>`}
   ${teamHtml}
@@ -388,7 +401,7 @@ function vHome() {
 function taskCard(x) {
   const st = status(x), u = userById(x.assigneeId), canEdit = isMgr() || x.createdBy === S.user.id;
   const rep = x.repeat === 'daily' ? ' · ' + t('daily_r') : x.repeat === 'weekly' ? ' · ' + t('weekly_r') : '';
-  return `<div class="card task ${st === 'done' ? 'done' : ''}" data-task="${x.id}">
+  return `<div class="card task ts-${st} ${st === 'done' ? 'done' : ''}" data-task="${x.id}">
   <div class="row" style="align-items:flex-start">
    <button class="check ${st === 'done' ? 'on' : ''}" data-done="${x.id}" aria-label="${t('done')}">${ic('check', 22, st === 'done' ? '#fff' : '#C9BEA9', 2.4)}</button>
    <div class="grow" ${canEdit ? `data-edit="${x.id}" style="cursor:pointer"` : ''}><div class="t">${esc(x.title)}</div>
@@ -463,7 +476,7 @@ function settingsSheet() {
   const bg = sheet(`<div class="row">${LOGO(44)}<div class="grow"><div class="d" style="font-size:18px">${esc(S.user.name)}</div><div class="muted"><bdi dir="ltr">${esc(S.user.username)}</bdi> · ${t(S.user.role)}</div></div></div>
    <div style="font-weight:600;font-size:14px">${ic('globe', 18)} ${t('lang')}</div><div class="seg"><button class="${S.lang === 'ar' ? 'on' : ''}" data-setlang="ar">العربية</button><button class="${S.lang === 'fr' ? 'on' : ''}" data-setlang="fr">Français</button></div>
    <div class="muted">${t('install')}</div>
-   <button class="btn red big" data-logout>${ic('out', 20, 'currentColor', 1.8, 'flip')}${t('logout')}</button><div class="muted" style="text-align:center">samarHive · v1.0</div>`);
+   <button class="btn red big" data-logout>${ic('out', 20, 'currentColor', 1.8, 'flip')}${t('logout')}</button><div class="muted" style="text-align:center">samarHive · v1.1</div>`);
   bg.addEventListener('click', e => {
     const l = e.target.closest('[data-setlang]'); if (l) { setLang(l.dataset.setlang); bg.remove(); }
     if (e.target.closest('[data-logout]')) { bg.remove(); logout(); }
@@ -570,12 +583,17 @@ async function addPerson(f) {
   } catch (er) { btn.disabled = false; $('#pe').textContent = er.message === 'username_taken' ? (S.lang === 'ar' ? 'اسم المستخدم مستعمل' : 'Identifiant déjà pris') : ''; if (er.message !== 'username_taken') fail(er); }
 }
 
-/* ---------- start ---------- */
-render();
-if (S.token) refresh().then(render).catch(e => { if (e.message !== 'auth') console.warn(e); });
-setInterval(() => { if (S.token && document.visibilityState === 'visible') refresh().then(() => { if (!document.querySelector('form,.sheet-bg')) render(); }).catch(() => {}); }, 60000);
-document.addEventListener('visibilitychange', () => { if (S.token && document.visibilityState === 'visible') refresh().then(() => { if (!document.querySelector('form,.sheet-bg')) render(); }).catch(() => {}); });
+/* ---------- start (after prep.js and other modules have loaded) ---------- */
+const quiet = () => !document.querySelector('form,.sheet-bg') && location.hash.replace(/^#\/?/, '').split('/')[0] !== 'prep';
+function start() {
+  render();
+  if (S.token) refresh().then(() => { if (quiet()) render(); }).catch(e => { if (e.message !== 'auth') console.warn(e); });
+  setInterval(() => { if (S.token && document.visibilityState === 'visible') refresh().then(() => { if (quiet()) render(); }).catch(() => {}); }, 60000);
+  document.addEventListener('visibilitychange', () => { if (S.token && document.visibilityState === 'visible') refresh().then(() => { if (quiet()) render(); }).catch(() => {}); });
+}
+document.addEventListener('DOMContentLoaded', start);
 if ('serviceWorker' in navigator && location.protocol === 'https:' && !DEMO) navigator.serviceWorker.register('sw.js').catch(() => {});
 </script>
+<script src="prep.js"></script>
 </body>
 </html>
