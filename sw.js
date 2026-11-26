@@ -2,8 +2,8 @@
 // - app files (index.html, config.js, prep.js): network first (max 2.5 s), so updates show at once; cached copy when offline
 // - icons and fonts: cache first, refreshed in the background
 // - Google Apps Script (the data) is never cached
-const V = 'samarhive-v2';
-const SHELL = ['./', './index.html', './config.js', './prep.js', './manifest.webmanifest', './icon-192.png', './favicon-32.png'];
+const V = 'samarhive-v3';
+const SHELL = ['./', './index.html', './config.js', './prep.js', './acct.js', './manifest.webmanifest', './icon-192.png', './favicon-32.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(V).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== V).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener('fetch', e => {

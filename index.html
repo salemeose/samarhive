@@ -360,10 +360,11 @@ function render() {
 function navBar(cur) {
   const a = [['home', 'home', t('home')]], b = [['tasks', 'tasks', t('tasks')]];
   if (routes.prep) a.push(['prep', 'box', t('prep')]);
-  if (isMgr()) b.push(['team', 'users', t('team')]);
+  if (isMgr()) b.push(routes.acct ? ['acct', 'wallet', t('acct')] : ['team', 'users', t('team')]);
   if (cur === 'task' || cur === 'person') cur = cur === 'task' ? 'tasks' : 'team';
+  if (cur === 'money') cur = 'acct';
   const lk = ([r, i, l]) => `<a href="#${r}" class="${cur === r ? 'on' : ''}" ${cur === r ? 'aria-current="page"' : ''}>${ic(i, 22)}<span>${l}</span></a>`;
-  const plus = cur === 'tasks' || !routes.prep ? `data-new aria-label="${t('new_task')}"` : `data-nfab aria-label="${t('prep')} +"`;
+  const plus = cur === 'acct' ? `data-mnew aria-label="${t('acct')} +"` : cur === 'tasks' || cur === 'team' || !routes.prep ? `data-new aria-label="${t('new_task')}"` : `data-nfab aria-label="${t('prep')} +"`;
   return `<nav class="bar" aria-label="nav">${a.map(lk).join('')}<button class="nfab" ${plus}>${ic('plus', 26, 'currentColor', 2.4)}</button>${b.map(lk).join('')}</nav>`;
 }
 function hdr(title, sub, right = '', back = '') {
@@ -539,11 +540,13 @@ function codeSheet(u, code) {
 function settingsSheet() {
   const bg = sheet(`<div class="row">${LOGO(44)}<div class="grow"><div class="d" style="font-size:18px">${esc(S.user.name)}</div><div class="muted"><bdi dir="ltr">${esc(S.user.username)}</bdi> · ${t(S.user.role)}</div></div></div>
    <div style="font-weight:600;font-size:14px">${ic('globe', 18)} ${t('lang')}</div><div class="seg"><button class="${S.lang === 'ar' ? 'on' : ''}" data-setlang="ar">العربية</button><button class="${S.lang === 'fr' ? 'on' : ''}" data-setlang="fr">Français</button></div>
+   ${isMgr() && routes.acct ? `<button class="btn o" data-goteam>${ic('users', 20)}${t('team')}</button>` : ''}
    <div class="muted">${t('install')}</div>
-   <button class="btn red big" data-logout>${ic('out', 20, 'currentColor', 1.8, 'flip')}${t('logout')}</button><div class="muted" style="text-align:center">samarHive · v1.1</div>`);
+   <button class="btn red big" data-logout>${ic('out', 20, 'currentColor', 1.8, 'flip')}${t('logout')}</button><div class="muted" style="text-align:center">samarHive · v1.2</div>`);
   bg.addEventListener('click', e => {
     const l = e.target.closest('[data-setlang]'); if (l) { setLang(l.dataset.setlang); bg.remove(); }
     if (e.target.closest('[data-logout]')) { bg.remove(); logout(); }
+    if (e.target.closest('[data-goteam]')) { bg.remove(); go('team'); }
   });
 }
 function setLang(l) { S.lang = l; store.set('lang', l); render(); }
@@ -564,6 +567,7 @@ document.addEventListener('click', async e => {
   if (ds.f) { S.f = ds.f; return render(); }
   if (ds.scope) { S.scope = ds.scope; return render(); }
   if ('new' in ds) { S.draft = null; return go('task'); }
+  if ('mnew' in ds) { if (window.acctNew) window.acctNew(); return; }
   if ('nfab' in ds) { if (location.hash !== '#prep') go('prep'); setTimeout(() => { const x = document.getElementById('x-in'); if (x) { window.scrollTo({ top: 0, behavior: 'smooth' }); x.focus(); } }, 120); return; }
   if (ds.edit) { S.draft = null; return go('task/' + ds.edit); }
   if (ds.done) return toggleDone(ds.done);
@@ -662,5 +666,6 @@ document.addEventListener('DOMContentLoaded', start);
 if ('serviceWorker' in navigator && location.protocol === 'https:' && !DEMO) navigator.serviceWorker.register('sw.js').catch(() => {});
 </script>
 <script src="prep.js"></script>
+<script src="acct.js"></script>
 </body>
 </html>
